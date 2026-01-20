@@ -15,6 +15,7 @@ import {
   Award,
   TrendingUp,
   Users,
+  MessageCircle
 } from "lucide-react";
 
 export default function IndustriesPage() {
@@ -86,45 +87,78 @@ export default function IndustriesPage() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section - Clean Gradient Style */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-[#F0F7F0] via-white to-[#4A7449]/10">
-        {/* Decorative Circles */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#5B8C5A]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4A6FA5]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-sm border border-[#5B8C5A]/20">
-              <Sparkles className="text-[#5B8C5A]" size={18} />
-              <span className="text-sm font-medium text-gray-700">
-                Industry Expertise
-              </span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-900 mb-6 leading-tight">
-              Industries We Serve
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Tailored compliance solutions across diverse industrial sectors with deep regulatory expertise and industry-specific knowledge.
-            </p>
+      {/* Hero Section - Enhanced Gradient Style */}
+{/* Hero Section - Two Column with Image */}
+<section className="relative py-20 md:py-32 overflow-hidden bg-[#4A7449]/10">
+  {/* Decorative Circles */}
+  <div className="absolute top-0 left-0 w-96 h-96 bg-[#4A7449]/20 rounded-full blur-3xl animate-blob -translate-x-1/2 -translate-y-1/2" />
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4A7449]/20 rounded-full blur-3xl animate-blob animation-delay-2000 translate-x-1/2 translate-y-1/2" />
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-12 max-w-2xl mx-auto">
-              {[
-                { number: "6+", label: "Industries" },
-                { number: "50+", label: "Active Clients" },
-                { number: "100%", label: "Compliance Rate" }
-              ].map((stat, index) => (
-                <div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
-                  <div className="text-3xl font-bold text-[#5B8C5A]">{stat.number}</div>
-                  <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+      {/* Left Column - Text + Stats */}
+      <div>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-sm border border-[#4A7449]/20 animate-pulse">
+          <Sparkles className="text-[#4A7449]" size={18} />
+          <span className="text-sm font-medium text-gray-700">Industry Expertise</span>
         </div>
-      </section>
+
+        {/* Gradient Heading */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-[#4A7449]">
+          Industries We Serve
+        </h1>
+
+        {/* Description */}
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 max-w-xl">
+          Tailored compliance solutions across diverse industrial sectors with deep regulatory expertise and industry-specific knowledge.
+        </p>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-6 max-w-md">
+          {[
+            { number: "6+", label: "Industries" },
+            { number: "50+", label: "Active Clients" },
+            { number: "100%", label: "Compliance Rate" },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
+              <div className="text-3xl font-bold text-[#4A7449]">{stat.number}</div>
+              <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-end items-center h-full">
+  {/* <div className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-2xl h-[60vh] border border-gray-200"> */}
+    <img
+      src="/industries.png" // Replace with your image path
+      alt="Hero Illustration"
+      className="w-full h-full object-cover"
+    />
+  {/* </div> */}
+</div>
+    </div>  
+  </div>
+
+  {/* Animation Keyframes */}
+  <style>
+    {`
+      @keyframes blob {
+        0%, 100% { transform: translate(0,0) scale(1); }
+        33% { transform: translate(30px,-20px) scale(1.1); }
+        66% { transform: translate(-20px,20px) scale(0.9); }
+      }
+      .animate-blob { animation: blob 8s infinite; }
+      .animation-delay-2000 { animation-delay: 2s; }
+    `}
+  </style>
+</section>
+
+
 
       {/* Industries Grid */}
       <section className="py-20 md:py-24 bg-gradient-to-b from-white to-[#F9FAFB]">
@@ -391,8 +425,34 @@ export default function IndustriesPage() {
             </a>
           </div>
         </div>
+
+
       </section>
 
+                <a
+            href="https://wa.me/919028360700"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-10 right-10 z-50 group"
+            aria-label="Chat on WhatsApp"
+            >
+            <div className="relative">
+            {/* Pulsing Ring */}
+            {/* <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div> */}
+
+            {/* Button */}
+            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+              <MessageCircle className="text-white" size={32} />
+            </div>
+
+            {/* Tooltip */}
+            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Chat with us on WhatsApp
+              {/* Arrow */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+            </div>
+            </div>
+            </a>  
       <Footer />
     </div>
   );

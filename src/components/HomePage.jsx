@@ -15,8 +15,30 @@ import {
   Sparkles,
   ChevronRight,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import { MessageCircle } from "lucide-react";
+
+
 
 export default function HomePage() {
+
+  const images = [
+  "/lean-img1.jpg",
+  "/lean-img2.jpg",
+  "/services.jpg",
+];
+
+const [currentImage, setCurrentImage] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  }, 3000); // 3 seconds
+
+  return () => clearInterval(interval);
+}, []);
+
   const services = [
     {
       icon: Shield,
@@ -56,6 +78,8 @@ export default function HomePage() {
     },
   ];
 
+  
+
   const approach = [
     {
       icon: Target,
@@ -84,172 +108,116 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-      {/* Hero Section - Industrial & Bold Design with Light Background */}
-      <section className="relative h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden flex items-center">
-        {/* Industrial Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(91, 140, 90, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(91, 140, 90, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
+<section className="relative min-h-screen overflow-hidden flex items-center bg-[#F8FBF8]">
+  {/* Soft organic background shapes */}
+  <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-[#5B8C5A]/10 rounded-full blur-3xl" />
+  <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-[#4A6FA5]/10 rounded-full blur-3xl" />
 
-        {/* Diagonal Accent Stripes */}
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(91, 140, 90, 0.5) 50px, rgba(91, 140, 90, 0.5) 51px)',
-          }} />
-        </div>
+  <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+    
+    {/* LEFT CONTENT */}
+    <div className="lg:col-span-6 space-y-8">
+      {/* Badge */}
+      <div className="inline-flex items-center gap-3 bg-white px-5 py-2 rounded-full shadow-sm border border-gray-200">
+  {/* Logo */}
+  <img
+    src="/logo_lean2.png"
+    alt="Lean EHS Logo"
+    className="h-6 w-auto object-contain"
+  />
 
-        {/* Animated Glow Elements */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[#5B8C5A]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#4A6FA5]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left Content */}
-            <div className="text-left space-y-6">
-              {/* Industrial Badge */}
-              <div className="inline-flex items-center gap-3 bg-[#5B8C5A]/10 backdrop-blur-sm border-l-4 border-[#5B8C5A] px-6 py-3">
-                <div className="w-2 h-2 bg-[#5B8C5A] rounded-full animate-pulse" />
-                <span className="text-sm font-bold text-[#5B8C5A] tracking-wider uppercase">
-                  EHS Compliance Experts
-                </span>
-              </div>
-              
-              {/* Main Headline - Bold & Industrial */}
-              <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-none tracking-tight">
-                  SAFETY
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#5B8C5A] to-[#87C487] mt-2">
-                    FIRST.
-                  </span>
-                  <span className="block text-gray-900 mt-2">
-                    ALWAYS.
-                  </span>
-                </h1>
-                
-                {/* Industrial Divider */}
-                <div className="flex items-center gap-4 py-3">
-                  <div className="h-1 w-20 bg-gradient-to-r from-[#5B8C5A] to-transparent" />
-                  <div className="h-1 w-12 bg-[#5B8C5A]/50" />
-                </div>
-              </div>
-              
-              <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-xl">
-                Industrial-grade <span className="text-[#5B8C5A] font-semibold">EHS compliance</span> and <span className="text-[#5B8C5A] font-semibold">safety audits</span> that protect your people, operations, and reputation.
-              </p>
-              
-              {/* Stats Bar - Industrial Style */}
-              <div className="grid grid-cols-3 gap-4 py-4">
-                {[
-                  { number: "ISO", label: "Certified Standards" },
-                  { number: "24/7", label: "Expert Support" },
-                  { number: "100%", label: "Compliance Focus" }
-                ].map((stat, index) => (
-                  <div key={index} className="border-l-2 border-[#5B8C5A] pl-4">
-                    <div className="text-xl font-black text-[#5B8C5A]">{stat.number}</div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wide">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* CTA Buttons - Industrial */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <a
-                  href="/contact"
-                  className="group relative px-8 py-3 bg-[#5B8C5A] text-white font-bold text-base overflow-hidden transition-all duration-300 hover:bg-[#4A7449]"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  <span className="relative flex items-center justify-center gap-2">
-                    GET STARTED
-                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </span>
-                </a>
-                
-                <a
-                  href="/services"
-                  className="group px-8 py-3 border-2 border-[#5B8C5A] text-[#5B8C5A] font-bold text-base hover:bg-[#5B8C5A]/10 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  OUR SERVICES
-                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </a>
-              </div>
-            </div>
+  {/* Dot */}
+  <span className="w-2 h-2 bg-[#5B8C5A] rounded-full" />
 
-            {/* Right Visual - Industrial Image with Data Overlay */}
-            <div className="relative lg:block hidden">
-              <div className="relative">
-                {/* Main Image Container with Padding */}
-                <div className="relative overflow-hidden border-4 border-[#5B8C5A]/30 p-4 bg-white shadow-2xl">
-                  <img
-                    src="/lean-img1.jpg"
-                    alt="LEAN EHS Industrial Safety"
-                    className="w-full h-[450px] object-cover"
-                  />
-                  
-                  {/* Light Gradient Overlay */}
-                  <div className="absolute inset-4 bg-gradient-to-t from-white/30 via-transparent to-transparent pointer-events-none" />
-                  
-                  {/* Corner Brackets - Industrial Look */}
-                  <div className="absolute top-2 left-2 w-12 h-12 border-t-4 border-l-4 border-[#5B8C5A]" />
-                  <div className="absolute top-2 right-2 w-12 h-12 border-t-4 border-r-4 border-[#5B8C5A]" />
-                  <div className="absolute bottom-2 left-2 w-12 h-12 border-b-4 border-l-4 border-[#5B8C5A]" />
-                  <div className="absolute bottom-2 right-2 w-12 h-12 border-b-4 border-r-4 border-[#5B8C5A]" />
-                  
-                  {/* Data Cards Overlay */}
-                  <div className="absolute bottom-10 left-10 right-10 space-y-2">
-                    {/* ISO Standards Card */}
-                    <div className="bg-white/95 backdrop-blur-md border-l-4 border-[#5B8C5A] p-3 shadow-lg">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Shield className="text-[#5B8C5A]" size={20} />
-                          <div>
-                            <div className="text-gray-900 font-bold text-xs">ISO Compliance</div>
-                            <div className="text-gray-600 text-[10px]">9001 | 14001 | 45001 | 27001</div>
-                          </div>
-                        </div>
-                        <CheckCircle2 className="text-[#5B8C5A]" size={18} />
-                      </div>
-                    </div>
-                    
-                    {/* Status Card */}
-                    <div className="bg-white/95 backdrop-blur-md border-l-4 border-[#4A6FA5] p-3 shadow-lg">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Award className="text-[#4A6FA5]" size={20} />
-                          <div>
-                            <div className="text-gray-900 font-bold text-xs">Expert Auditors</div>
-                            <div className="text-gray-600 text-[10px]">Certified & Experienced</div>
-                          </div>
-                        </div>
-                        <div className="w-2 h-2 bg-[#5B8C5A] rounded-full animate-pulse" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Floating Metric Card - Top Right */}
-                <div className="absolute -top-4 -right-4 bg-[#5B8C5A] p-4 shadow-2xl border-4 border-white">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-white mb-1">100%</div>
-                    <div className="text-[10px] text-white/90 uppercase tracking-wider">Compliance</div>
-                    <div className="text-[10px] text-white/90 uppercase tracking-wider">Focused</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  {/* Text */}
+  <span className="text-sm font-semibold text-[#5B8C5A] tracking-wide">
+    EHS COMPLIANCE EXPERTS
+  </span>
+</div>
 
+
+      {/* Headline */}
+      <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+        Safety isn’t a feature.
+        <span className="block text-[#5B8C5A] mt-2">
+          It’s a commitment.
+        </span>
+      </h1>
+
+      {/* Description */}
+      <p className="text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
+        Industrial-grade <span className="font-semibold text-[#5B8C5A]">EHS compliance</span> and 
+        <span className="font-semibold text-[#5B8C5A]"> safety audits</span> that protect people,
+        operations, and reputation.
+      </p>
+
+      {/* CTA */}
+      <div className="flex flex-wrap gap-4 pt-4">
+        <a
+          href="/contact"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#5B8C5A] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition"
+        >
+          Get Started
+          <ArrowRight size={18} />
+        </a>
+
+        <a
+          href="/services"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#5B8C5A] font-semibold rounded-xl border border-[#5B8C5A]/30 hover:bg-[#5B8C5A]/5 transition"
+        >
+          Our Services
+        </a>
+      </div>
+
+      {/* Stats */}
+      <div className="flex gap-8 pt-6">
+        {[
+          { value: "ISO", label: "Standards" },
+          { value: "10+", label: "Years" },
+          { value: "100%", label: "Audit Focus" },
+        ].map((s, i) => (
+          <div key={i}>
+            <div className="text-2xl font-bold text-[#5B8C5A]">{s.value}</div>
+            <div className="text-sm text-gray-600">{s.label}</div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
 
-        {/* Bottom Industrial Strip */}
-        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-[#5B8C5A] to-transparent" />
-      </section>
+    <div className="lg:col-span-6 relative">
+  <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
+    {images.map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        alt="Lean EHS Safety"
+        className={`absolute inset-0 w-full h-full object-cover brightness-110 transition-opacity duration-1000 ${
+          index === currentImage ? "opacity-100" : "opacity-0"
+        }`}
+      />
+    ))}
+  </div>
+
+  {/* Floating trust card */}
+  <div className="absolute -bottom-6 -left-6 bg-white px-6 py-4 rounded-2xl shadow-xl border border-gray-200">
+    <div className="flex items-center gap-3">
+      <Shield className="text-[#5B8C5A]" />
+      <div>
+        <div className="text-sm font-bold text-gray-900">
+          ISO-Aligned Audits
+        </div>
+        <div className="text-xs text-gray-600">
+          9001 · 14001 · 45001
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
 
       {/* Why Lean EHS */}
       <section className="relative py-20 md:py-24 overflow-hidden bg-gradient-to-br from-[#5B8C5A] via-[#4A7449] to-[#4A6FA5]">
@@ -335,36 +303,54 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={index}
-                  className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#5B8C5A]/30 hover:-translate-y-2 relative overflow-hidden"
-                >
-                  {/* Gradient Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                      <Icon className="text-[#5B8C5A]" size={32} />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#5B8C5A] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                      {service.description}
-                    </p>
-                    <div className="flex items-center text-[#5B8C5A] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more
-                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  {services.map((service, index) => {
+    const Icon = service.icon;
+    return (
+      <div
+        key={index}
+        className="group relative bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+      >
+        {/* Left Accent Bar */}
+        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#5B8C5A] to-[#4A6FA5] opacity-80" />
+
+        {/* Header */}
+        <div className="p-8 pb-6">
+          <div className="flex items-center gap-4 mb-5">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <Icon className="text-[#5B8C5A]" size={30} />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 leading-snug group-hover:text-[#5B8C5A] transition-colors">
+              {service.title}
+            </h3>
           </div>
+
+          <p className="text-gray-600 leading-relaxed text-sm">
+            {service.description}
+          </p>
+        </div>
+
+        {/* Divider */}
+        <div className="mx-8 h-px bg-gray-100" />
+
+        {/* Footer CTA */}
+        <div className="px-8 py-5 flex items-center justify-between">
+          <span className="text-sm font-semibold text-[#5B8C5A] tracking-wide">
+            Explore Service
+          </span>
+          <ArrowRight
+            size={18}
+            className="text-[#5B8C5A] group-hover:translate-x-1 transition-transform"
+          />
+        </div>
+
+        {/* Hover Glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+    );
+  })}
+</div>
+
           
           <div className="text-center mt-12">
             <a
@@ -377,55 +363,74 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+{/* Our Process - Step by Step (Zig-Zag Layout) */}
+<section className="py-20 md:py-28 bg-white relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      {/* Our Approach - Enhanced with timeline-style layout */}
-      <section className="py-5 md:py-16 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="text-[#4A6FA5] font-semibold text-sm tracking-wider uppercase">
-                Our Methodology
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Our Approach
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Implementation-focused methodology that delivers real results
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            {/* Connection Line */}
-            <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#4A6FA5]/20 to-transparent" />
-            
-            {approach.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={index} className="relative">
-                  <div className="text-center group">
-                    {/* Step Number */}
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#4A6FA5] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                      {index + 1}
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-[#E8F3F8] to-[#F0F7F0] w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg relative z-10">
-                      <Icon className="text-[#4A6FA5]" size={32} />
-                    </div>
-                    
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 px-4">
+    {/* Header */}
+    <div className="text-center mb-20">
+      <span className="text-[#4A6FA5] font-semibold text-sm tracking-wider uppercase">
+        Our Process
+      </span>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-3 mb-4">
+        Our EHS Implementation Process
+      </h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        A structured, practical approach that ensures compliance, safety, and long-term sustainability
+      </p>
+    </div>
+
+    {/* Steps */}
+    <div className="relative">
+      {/* Center Line */}
+      <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#4A6FA5]/30 to-transparent" />
+
+      <div className="space-y-20">
+        {approach.map((item, index) => {
+          const Icon = item.icon;
+          const isLeft = index % 2 === 0;
+
+          return (
+            <div
+              key={index}
+              className={`relative flex flex-col lg:flex-row items-center ${
+                isLeft ? "lg:justify-start" : "lg:justify-end"
+              }`}
+            >
+              {/* Step Card */}
+              <div className="bg-white shadow-xl border border-gray-100 rounded-2xl p-8 w-full lg:w-[45%] relative group hover:shadow-2xl transition-all duration-300">
+                
+                {/* Step Number */}
+                <div className="absolute -top-6 left-6 bg-[#4A6FA5] text-white px-4 py-1 rounded-full text-sm font-bold tracking-wider">
+                   {String(index + 1).padStart(2, "0")}
+                </div>
+
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#E8F3F8] to-[#F0F7F0] flex items-center justify-center shadow-md">
+                    <Icon className="text-[#4A6FA5]" size={28} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed px-2">
+                    <p className="text-gray-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+              </div>
+
+              {/* Connector Dot */}
+              <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-[#4A6FA5] rounded-full border-4 border-white shadow-lg" />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* CTA Section - Enhanced with better gradient and layout */}
       <section className="relative py-20 md:py-28 bg-gradient-to-br from-[#5B8C5A] via-[#4A7449] to-[#4A6FA5] overflow-hidden">
@@ -463,8 +468,35 @@ export default function HomePage() {
               View Services
             </a>
           </div>
+          
         </div>
       </section>
+
+      <a
+            href="https://wa.me/919028360700"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-10 right-10 z-50 group"
+            aria-label="Chat on WhatsApp"
+            >
+            <div className="relative">
+            {/* Pulsing Ring */}
+            {/* <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div> */}
+
+            {/* Button */}
+            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+              <MessageCircle className="text-white" size={32} />
+            </div>
+
+            {/* Tooltip */}
+            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Chat with us on WhatsApp
+              {/* Arrow */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+            </div>
+            </div>
+            </a>
+
 
       <Footer />
       

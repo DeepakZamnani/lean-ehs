@@ -16,6 +16,7 @@ import {
   Users,
   Briefcase,
   TrendingUp,
+  MessageCircle
 } from "lucide-react";
 
 export default function ServicesPage() {
@@ -374,7 +375,7 @@ export default function ServicesPage() {
               {/* Left - Image */}
               <div className="relative h-64 lg:h-auto">
                 <img
-                  src="/services2.jpg"
+                  src="/logo_lean2.png"
                   alt="LEAN EHS Team"
                   className="w-full h-full object-cover"
                 />
@@ -466,6 +467,31 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <a
+            href="https://wa.me/919028360700"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-10 right-10 z-50 group"
+            aria-label="Chat on WhatsApp"
+            >
+            <div className="relative">
+            {/* Pulsing Ring */}
+            {/* <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div> */}
+
+            {/* Button */}
+            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+              <MessageCircle className="text-white" size={32} />
+            </div>
+
+            {/* Tooltip */}
+            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Chat with us on WhatsApp
+              {/* Arrow */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+            </div>
+            </div>
+            </a>
 
       <Footer />
 

@@ -401,6 +401,45 @@ export default function ContactPage() {
             <span>+91 9028360700</span>
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={22} />
           </a>
+
+          
+            <a
+            href="https://wa.me/919028360700"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-10 right-10 z-50 group"
+            aria-label="Chat on WhatsApp"
+            >
+            <div className="relative">
+            {/* Pulsing Ring */}
+            <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
+
+            {/* Button */}
+            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+              <MessageCircle className="text-white" size={32} />
+            </div>
+
+            {/* Tooltip */}
+            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Chat with us on WhatsApp
+              {/* Arrow */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+            </div>
+            </div>
+            </a>
+            <script>
+            {`
+        @keyframes ping {
+          75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+        .animate-ping {
+          animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+      `}
+            </script>
         </div>
       </section>
 
