@@ -374,7 +374,7 @@ export default function ServicesPage() {
               {/* Left - Image */}
               <div className="relative h-64 lg:h-auto">
                 <img
-                  src="/services.jpg"
+                  src="/services2.jpg"
                   alt="LEAN EHS Team"
                   className="w-full h-full object-cover"
                 />
@@ -426,11 +426,11 @@ export default function ServicesPage() {
       <section className="relative py-20 md:py-24 overflow-hidden">
         {/* Background with services.jpg */}
         <div className="absolute inset-0">
-          <img
-            src="/services.jpg"
+          {/* <img
+            src="/services4.jpeg"
             alt="Contact LEAN EHS"
             className="w-full h-full object-cover"
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/95 via-[#4A7449]/90 to-[#4A6FA5]/95" />
         </div>
 

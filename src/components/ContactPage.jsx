@@ -1,8 +1,20 @@
 "use client";
 import { useState } from "react";
 import Header from './Header';
-import Footer from './Footer'
-import { Mail, Phone, Send, CheckCircle } from "lucide-react";
+import Footer from './Footer';
+import { 
+  Mail, 
+  Phone, 
+  Send, 
+  CheckCircle, 
+  Clock,
+  Sparkles,
+  ArrowRight,
+  Shield,
+  Award,
+  Users,
+  MessageCircle
+} from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -60,79 +72,174 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#F0F7F0] to-white py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      {/* Hero Section with Background Image */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="/services.jpg"
+            alt="Contact LEAN EHS"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/95 via-[#4A7449]/90 to-[#4A6FA5]/95" />
+          {/* Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Sparkles className="text-white" size={18} />
+              <span className="text-white font-medium text-sm">
+                Get In Touch
+              </span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Contact Us
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Connect with Lean EHS for compliance clarity and audit readiness
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              Ready to strengthen your compliance posture? Our team is here to guide you through your EHS journey.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-24 bg-gradient-to-b from-white to-[#F9FAFB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact Info */}
+            
+            {/* Contact Info - Left Side */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Get In Touch
-              </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Have questions about compliance requirements or need expert
-                guidance? Our team is here to help you navigate your EHS and
-                sustainability obligations.
-              </p>
+              <div className="sticky top-8">
+                <div className="inline-block mb-4">
+                  <span className="text-[#5B8C5A] font-semibold text-sm tracking-wider uppercase">
+                    Contact Information
+                  </span>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  Let's Start a Conversation
+                </h2>
+                
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  Have questions about compliance requirements or need expert guidance? Our team is here to help you navigate your EHS and sustainability obligations.
+                </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-[#F0F7F0] w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-[#5B8C5A]" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">leanehs@outlook.com</p>
+                {/* Contact Cards */}
+                <div className="space-y-4">
+                  {/* Email - Clickable */}
+                  <a 
+                    href="mailto:leanehs@outlook.com"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#5B8C5A]/30 block cursor-pointer hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-md">
+                        <Mail className="text-[#5B8C5A]" size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">Email</h3>
+                        <p className="text-gray-700 font-medium group-hover:text-[#5B8C5A] transition-colors">leanehs@outlook.com</p>
+                        <p className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to send email →</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Phone - Clickable */}
+                  <a 
+                    href="tel:+919028360700"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#4A6FA5]/30 block cursor-pointer hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#E8F3F8] to-[#F0F7F0] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-md">
+                        <Phone className="text-[#4A6FA5]" size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">Phone</h3>
+                        <p className="text-gray-700 font-medium group-hover:text-[#4A6FA5] transition-colors">+91 9028360700</p>
+                        <p className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to call →</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* WhatsApp - Clickable */}
+                  <a 
+                    href="https://wa.me/919028360700"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#25D366]/30 block cursor-pointer hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#D1FAE5] to-[#A7F3D0] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-md">
+                        <MessageCircle className="text-[#25D366]" size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">WhatsApp</h3>
+                        <p className="text-gray-700 font-medium group-hover:text-[#25D366] transition-colors">+91 9028360700</p>
+                        <p className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to chat →</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Business Hours */}
+                  <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md">
+                        <Clock className="text-[#5B8C5A]" size={24} />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">Business Hours</h3>
+                        <p className="text-gray-700 text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                        <p className="text-gray-700 text-sm">Sat: 9:00 AM - 1:00 PM</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-[#E8F3F8] w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-[#4A6FA5]" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">9028360700</p>
+                {/* Why Contact Us */}
+                <div className="mt-8 p-6 bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] rounded-2xl shadow-md">
+                  <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">Why Choose LEAN EHS?</h3>
+                  <div className="space-y-3">
+                    {[
+                      { icon: Shield, text: "24-48 Hour Response Time" },
+                      { icon: Award, text: "Industry-Certified Experts" },
+                      { icon: Users, text: "Personalized Solutions" }
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center shadow-sm">
+                          <item.icon className="text-[#5B8C5A]" size={16} />
+                        </div>
+                        <span className="text-sm text-gray-700 font-medium">{item.text}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Contact Form - Right Side */}
             <div className="lg:col-span-3">
               {success ? (
-                <div className="bg-[#F0F7F0] border border-[#5B8C5A] rounded-lg p-8 text-center">
-                  <CheckCircle
-                    className="text-[#5B8C5A] mx-auto mb-4"
-                    size={48}
-                  />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Message Sent!
+                <div className="bg-white rounded-3xl shadow-2xl p-12 text-center border border-gray-100">
+                  <div className="w-20 h-20 bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                    <CheckCircle className="text-white" size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                    Message Sent Successfully!
                   </h3>
-                  <p className="text-gray-600 mb-6">
-                    Thank you for reaching out. Our team will get back to you
-                    shortly.
+                  <p className="text-gray-600 mb-8 text-lg">
+                    Thank you for reaching out. Our team will get back to you within 24-48 hours.
                   </p>
                   <button
                     onClick={() => setSuccess(false)}
-                    className="text-[#5B8C5A] font-semibold hover:text-[#4A7449] transition-colors"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#5B8C5A] to-[#4A7449] text-white px-8 py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold"
                   >
                     Send Another Message
                   </button>
@@ -140,8 +247,13 @@ export default function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-[#F9FAFB] p-8 rounded-lg border border-gray-200"
+                  className="bg-white rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100"
                 >
+                  <div className="mb-8">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
+                    <p className="text-gray-600">Fill out the form below and we'll get back to you soon.</p>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -153,7 +265,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
                     <div>
@@ -166,7 +278,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
                   </div>
@@ -182,7 +294,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
                     <div>
@@ -194,7 +306,7 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
                   </div>
@@ -207,19 +319,13 @@ export default function ContactPage() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select a service</option>
-                      <option value="regulatory">
-                        Regulatory EHS & Safety Audits
-                      </option>
+                      <option value="regulatory">Regulatory EHS & Safety Audits</option>
                       <option value="iso">ISO Management Systems</option>
-                      <option value="ethical">
-                        Ethical Trade & Sustainability
-                      </option>
-                      <option value="environmental">
-                        Environmental & Waste Compliance
-                      </option>
+                      <option value="ethical">Ethical Trade & Sustainability</option>
+                      <option value="environmental">Environmental & Waste Compliance</option>
                       <option value="automotive">Automotive Standards</option>
                       <option value="food">Food Safety</option>
                       <option value="other">Other</option>
@@ -235,14 +341,14 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all resize-none"
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all resize-none bg-white"
                       placeholder="Tell us about your compliance needs..."
                     />
                   </div>
 
                   {error && (
-                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
                       {error}
                     </div>
                   )}
@@ -250,15 +356,51 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-[#5B8C5A] text-white px-6 py-4 rounded-md hover:bg-[#4A7449] transition-colors font-semibold flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-[#5B8C5A] to-[#4A7449] text-white px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
                   >
                     <span>{loading ? "Sending..." : "Send Message"}</span>
-                    <Send size={20} />
+                    <Send className="group-hover:translate-x-1 transition-transform" size={20} />
                   </button>
                 </form>
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-20 md:py-24 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A] via-[#4A7449] to-[#4A6FA5]" />
+        
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <Sparkles className="text-white" size={18} />
+            <span className="text-white/90 text-sm font-medium">
+              Have Questions?
+            </span>
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Prefer to Call? We're Here.
+          </h2>
+          
+          <p className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+            Our compliance experts are ready to discuss your specific needs and requirements.
+          </p>
+          
+          <a
+            href="tel:+919028360700"
+            className="group inline-flex items-center justify-center gap-2 bg-white text-[#5B8C5A] px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <Phone size={22} />
+            <span>+91 9028360700</span>
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={22} />
+          </a>
         </div>
       </section>
 

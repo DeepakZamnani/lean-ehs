@@ -30,8 +30,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50"
-          : "bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100"
+          ? "bg-[#E8F5E8]/95 backdrop-blur-lg shadow-lg border-b border-[#5B8C5A]/30"
+          : "bg-[#F0F7F0]/80 backdrop-blur-md shadow-sm border-b border-[#5B8C5A]/20"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export default function Header() {
                 className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-[#5B8C5A]/0 group-hover:bg-[#5B8C5A]/5 rounded-lg blur-xl transition-all duration-300" />
+              <div className="absolute inset-0 bg-[#5B8C5A]/0 group-hover:bg-[#5B8C5A]/10 rounded-lg blur-xl transition-all duration-300" />
             </div>
           </a>
 
@@ -58,8 +58,8 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 py-2 text-gray-700 hover:text-[#5B8C5A] transition-all duration-300 font-medium text-sm group ${
-                  currentPath === link.href ? "text-[#5B8C5A]" : ""
+                className={`relative px-4 py-2 text-gray-700 hover:text-[#3d6b3d] transition-all duration-300 font-medium text-sm group ${
+                  currentPath === link.href ? "text-[#3d6b3d]" : ""
                 }`}
               >
                 {link.label}
@@ -72,7 +72,7 @@ export default function Header() {
                   }`}
                 />
                 {/* Hover background */}
-                <span className="absolute inset-0 bg-[#5B8C5A]/0 group-hover:bg-[#5B8C5A]/5 rounded-lg transition-colors duration-300 -z-10" />
+                <span className="absolute inset-0 bg-[#5B8C5A]/0 group-hover:bg-[#5B8C5A]/10 rounded-lg transition-colors duration-300 -z-10" />
               </a>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center text-gray-700 hover:text-[#5B8C5A] transition-colors rounded-lg hover:bg-[#5B8C5A]/5"
+            className="md:hidden relative w-10 h-10 flex items-center justify-center text-gray-700 hover:text-[#3d6b3d] transition-colors rounded-lg hover:bg-[#5B8C5A]/10"
           >
             {mobileMenuOpen ? (
               <X size={24} className="transition-transform duration-300 rotate-90" />
@@ -115,15 +115,15 @@ export default function Header() {
             mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-4 border-t border-gray-200/50 space-y-1">
+          <div className="py-4 border-t border-[#5B8C5A]/30 space-y-1">
             {navLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 px-4 text-gray-700 hover:text-[#5B8C5A] hover:bg-[#F0F7F0] transition-all duration-300 font-medium rounded-lg ${
+                className={`block py-3 px-4 text-gray-700 hover:text-[#3d6b3d] hover:bg-[#D4ECD4] transition-all duration-300 font-medium rounded-lg ${
                   currentPath === link.href
-                    ? "text-[#5B8C5A] bg-[#F0F7F0]"
+                    ? "text-[#3d6b3d] bg-[#D4ECD4]"
                     : ""
                 }`}
                 style={{

@@ -84,94 +84,171 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-      {/* Hero Section - Enhanced with overlapping elements and gradient */}
-      <section className="relative bg-gradient-to-br from-[#F0F7F0] via-white to-[#E8F3F8] py-20 md:py-32 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-[#5B8C5A]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4A6FA5]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      {/* Hero Section - Industrial & Bold Design with Light Background */}
+      <section className="relative h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden flex items-center">
+        {/* Industrial Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(91, 140, 90, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(91, 140, 90, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        {/* Diagonal Accent Stripes */}
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(91, 140, 90, 0.5) 50px, rgba(91, 140, 90, 0.5) 51px)',
+          }} />
+        </div>
+
+        {/* Animated Glow Elements */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[#5B8C5A]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#4A6FA5]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
             {/* Left Content */}
-            <div className="text-left animate-fadeIn">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-[#5B8C5A]/20 mb-6 shadow-sm">
-                <Sparkles className="text-[#5B8C5A]" size={18} />
-                <span className="text-sm font-medium text-gray-700">
-                  Minimizing Risk, Maximizing Results
+            <div className="text-left space-y-6">
+              {/* Industrial Badge */}
+              <div className="inline-flex items-center gap-3 bg-[#5B8C5A]/10 backdrop-blur-sm border-l-4 border-[#5B8C5A] px-6 py-3">
+                <div className="w-2 h-2 bg-[#5B8C5A] rounded-full animate-pulse" />
+                <span className="text-sm font-bold text-[#5B8C5A] tracking-wider uppercase">
+                  EHS Compliance Experts
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Building a Strong
-                <span className="block text-[#5B8C5A] mt-2">Safety Culture</span>
-              </h1>
+              {/* Main Headline - Bold & Industrial */}
+              <div className="space-y-3">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-none tracking-tight">
+                  SAFETY
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#5B8C5A] to-[#87C487] mt-2">
+                    FIRST.
+                  </span>
+                  <span className="block text-gray-900 mt-2">
+                    ALWAYS.
+                  </span>
+                </h1>
+                
+                {/* Industrial Divider */}
+                <div className="flex items-center gap-4 py-3">
+                  <div className="h-1 w-20 bg-gradient-to-r from-[#5B8C5A] to-transparent" />
+                  <div className="h-1 w-12 bg-[#5B8C5A]/50" />
+                </div>
+              </div>
               
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
-                End-to-end EHS & compliance solutions for modern businesses. We deliver practical, site-focused compliance, audit readiness, and implementation support.
+              <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-xl">
+                Industrial-grade <span className="text-[#5B8C5A] font-semibold">EHS compliance</span> and <span className="text-[#5B8C5A] font-semibold">safety audits</span> that protect your people, operations, and reputation.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/services"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#5B8C5A] text-white px-8 py-4 rounded-lg hover:bg-[#4A7449] transition-all duration-300 font-medium text-lg shadow-lg shadow-[#5B8C5A]/25 hover:shadow-xl hover:shadow-[#5B8C5A]/30 hover:-translate-y-0.5"
-                >
-                  Explore Services
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </a>
+              {/* Stats Bar - Industrial Style */}
+              <div className="grid grid-cols-3 gap-4 py-4">
+                {[
+                  { number: "ISO", label: "Certified Standards" },
+                  { number: "24/7", label: "Expert Support" },
+                  { number: "100%", label: "Compliance Focus" }
+                ].map((stat, index) => (
+                  <div key={index} className="border-l-2 border-[#5B8C5A] pl-4">
+                    <div className="text-xl font-black text-[#5B8C5A]">{stat.number}</div>
+                    <div className="text-xs text-gray-600 uppercase tracking-wide">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* CTA Buttons - Industrial */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#5B8C5A] border-2 border-[#5B8C5A] px-8 py-4 rounded-lg hover:bg-[#F0F7F0] transition-all duration-300 font-medium text-lg shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                  className="group relative px-8 py-3 bg-[#5B8C5A] text-white font-bold text-base overflow-hidden transition-all duration-300 hover:bg-[#4A7449]"
                 >
-                  Get Started
-                  <ChevronRight size={20} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  <span className="relative flex items-center justify-center gap-2">
+                    GET STARTED
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  </span>
+                </a>
+                
+                <a
+                  href="/services"
+                  className="group px-8 py-3 border-2 border-[#5B8C5A] text-[#5B8C5A] font-bold text-base hover:bg-[#5B8C5A]/10 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  OUR SERVICES
+                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </a>
               </div>
             </div>
 
-            {/* Right Image/Visual Element */}
+            {/* Right Visual - Industrial Image with Data Overlay */}
             <div className="relative lg:block hidden">
-              <div className="relative z-10">
-                {/* Hero Image */}
-                <div className="relative rounded-2xl shadow-2xl overflow-hidden border-4 border-white/50 backdrop-blur-sm">
+              <div className="relative">
+                {/* Main Image Container with Padding */}
+                <div className="relative overflow-hidden border-4 border-[#5B8C5A]/30 p-4 bg-white shadow-2xl">
                   <img
-                    src="/services.jpg"
-                    alt="LEAN EHS - Safety & Compliance Excellence"
-                    className="w-full h-auto object-cover"
+                    src="/lean-img1.jpg"
+                    alt="LEAN EHS Industrial Safety"
+                    className="w-full h-[450px] object-cover"
                   />
-                  {/* Image Overlay with Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#5B8C5A]/20 to-transparent" />
                   
-                  {/* Floating Badges on Image */}
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-[#5B8C5A]/10 rounded-full flex items-center justify-center">
-                          <Shield className="text-[#5B8C5A]" size={24} />
+                  {/* Light Gradient Overlay */}
+                  <div className="absolute inset-4 bg-gradient-to-t from-white/30 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Corner Brackets - Industrial Look */}
+                  <div className="absolute top-2 left-2 w-12 h-12 border-t-4 border-l-4 border-[#5B8C5A]" />
+                  <div className="absolute top-2 right-2 w-12 h-12 border-t-4 border-r-4 border-[#5B8C5A]" />
+                  <div className="absolute bottom-2 left-2 w-12 h-12 border-b-4 border-l-4 border-[#5B8C5A]" />
+                  <div className="absolute bottom-2 right-2 w-12 h-12 border-b-4 border-r-4 border-[#5B8C5A]" />
+                  
+                  {/* Data Cards Overlay */}
+                  <div className="absolute bottom-10 left-10 right-10 space-y-2">
+                    {/* ISO Standards Card */}
+                    <div className="bg-white/95 backdrop-blur-md border-l-4 border-[#5B8C5A] p-3 shadow-lg">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Shield className="text-[#5B8C5A]" size={20} />
+                          <div>
+                            <div className="text-gray-900 font-bold text-xs">ISO Compliance</div>
+                            <div className="text-gray-600 text-[10px]">9001 | 14001 | 45001 | 27001</div>
+                          </div>
                         </div>
-                        <div>
-                          <p className="font-bold text-gray-900">Expert Compliance Solutions</p>
-                          <p className="text-sm text-gray-600">ISO & EHS Standards</p>
+                        <CheckCircle2 className="text-[#5B8C5A]" size={18} />
+                      </div>
+                    </div>
+                    
+                    {/* Status Card */}
+                    <div className="bg-white/95 backdrop-blur-md border-l-4 border-[#4A6FA5] p-3 shadow-lg">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Award className="text-[#4A6FA5]" size={20} />
+                          <div>
+                            <div className="text-gray-900 font-bold text-xs">Expert Auditors</div>
+                            <div className="text-gray-600 text-[10px]">Certified & Experienced</div>
+                          </div>
                         </div>
+                        <div className="w-2 h-2 bg-[#5B8C5A] rounded-full animate-pulse" />
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Floating Badge - Top Right */}
-                <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-xl border-4 border-[#F0F7F0] animate-float">
+                {/* Floating Metric Card - Top Right */}
+                <div className="absolute -top-4 -right-4 bg-[#5B8C5A] p-4 shadow-2xl border-4 border-white">
                   <div className="text-center">
-                    <Award className="text-[#5B8C5A] mx-auto mb-1" size={28} />
-                    <p className="text-xs font-bold text-gray-900">Certified</p>
-                    <p className="text-xs text-gray-600">Experts</p>
+                    <div className="text-3xl font-black text-white mb-1">100%</div>
+                    <div className="text-[10px] text-white/90 uppercase tracking-wider">Compliance</div>
+                    <div className="text-[10px] text-white/90 uppercase tracking-wider">Focused</div>
                   </div>
                 </div>
               </div>
-              
-              {/* Background Decoration */}
-              <div className="absolute -bottom-4 -left-4 w-64 h-64 bg-gradient-to-br from-[#5B8C5A]/10 to-transparent rounded-full blur-2xl" />
             </div>
+
           </div>
         </div>
+
+        {/* Bottom Industrial Strip */}
+        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-[#5B8C5A] to-transparent" />
       </section>
 
       {/* Why Lean EHS */}
@@ -412,12 +489,25 @@ export default function HomePage() {
           }
         }
 
+        @keyframes scan {
+          0% {
+            top: 0;
+          }
+          100% {
+            top: 100%;
+          }
+        }
+
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out;
         }
 
         .animate-float {
           animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-scan {
+          animation: scan 4s ease-in-out infinite;
         }
       `}</style>
     </div>
