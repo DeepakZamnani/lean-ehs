@@ -4,122 +4,106 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {
   Shield,
-  Leaf,
-  Factory,
-  Award,
-  Utensils,
-  FileCheck,
+  GraduationCap,
+  Code,
+  Users,
+  Target,
   ArrowRight,
   CheckCircle2,
   Sparkles,
-  Target,
-  Users,
   Briefcase,
   TrendingUp,
-  MessageCircle
+  MessageCircle,
+  ClipboardCheck
 } from "lucide-react";
 
 export default function ServicesPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const serviceCategories = [
+  const mainServices = [
     {
-      id: "regulatory",
-      icon: Shield,
-      title: "Regulatory EHS & Safety Audits",
-      shortTitle: "Regulatory EHS",
-      color: "#5B8C5A",
-      bgColor: "#F0F7F0",
-      description: "Statutory compliance assessment, gap analysis, and risk mitigation across electrical, fire, and life safety standards.",
-      services: [
-        "Regulatory EHS Audits",
-        "Electrical Safety Audits",
-        "Fire & Life Safety Audits",
-        "Occupational Health & Safety Assessments",
+      id: "audit",
+      icon: ClipboardCheck,
+      title: "Audit & Compliance Services",
+      description: "Comprehensive audit and compliance assessment services covering regulatory, quality, safety, and sustainability requirements across industries.",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+      link: "/audit",
+      features: [
+        "Regulatory EHS & Safety Audits",
+        "ISO Management Systems",
+        "Ethical Trade & Sustainability",
+        "Environmental & Waste Compliance",
+        "Automotive & Industry Standards",
+        "Food Safety & Hygiene"
       ],
+      color: "#5B8C5A"
     },
     {
-      id: "ethical",
-      icon: Leaf,
-      title: "Ethical Trade & Sustainability",
-      shortTitle: "Sustainability",
-      color: "#4A6FA5",
-      bgColor: "#E8F3F8",
-      description: "Ethical trade compliance, sustainability assessments, and responsible business practices certification support.",
-      services: [
-        "SMETA / Sedex Audits",
-        "Responsible Business Alliance (RBA)",
-        "EcoVadis Assessment Support",
-        "SA8000 Social Accountability",
-        "WRAP (Worldwide Responsible Accredited Production)",
-        "ISO 26000 Social Responsibility Guidance",
+      id: "training",
+      icon: GraduationCap,
+      title: "Training & Capability Development",
+      description: "Comprehensive EHS training programs designed to build competency, ensure compliance, and strengthen workplace safety culture across all organizational levels.",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+      link: "/training",
+      features: [
+        "DISH-Approved Fire Fighting & First Aid",
+        "Safety Leadership Development",
+        "Permit to Work (PTW) Training",
+        "Risk Assessment Training",
+        "Electrical Safety & LOTO",
+        "Emergency Response Planning"
       ],
+      color: "#4A6FA5"
     },
     {
-      id: "environmental",
-      icon: FileCheck,
-      title: "Environmental & Waste Compliance",
-      shortTitle: "Environmental",
-      color: "#6B8E23",
-      bgColor: "#F5F8E8",
-      description: "Environmental legal compliance, waste management rules, and pollution control monitoring solutions.",
-      services: [
-        "IS 14489 Implementation",
-        "Environmental Legal Compliance Review",
-        "Waste Management Rules Adherence",
-        "Pollution Control & Monitoring",
-        "Environmental Impact Assessments",
+      id: "software",
+      icon: Code,
+      title: "EHS Software & Digital Solutions",
+      description: "Comprehensive EHS software solutions to manage incidents, hazards, compliance, and safety performance with real-time tracking and data-driven insights.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      link: "/software",
+      features: [
+        "Incident Management Software",
+        "Hazard Reporting Tools",
+        "Process Safety Management (PSM)",
+        "Behaviour Based Safety (BBS)",
+        "Contractor Safety Management",
+        "Job Hazard Analysis (JHA)"
       ],
+      color: "#2C5F7C"
     },
     {
-      id: "iso",
-      icon: Award,
-      title: "ISO Management Systems",
-      shortTitle: "ISO Systems",
-      color: "#8B7355",
-      bgColor: "#F5F1ED",
-      description: "Complete ISO implementation support across quality, environmental, safety, and specialized management systems.",
-      services: [
-        "ISO 9001 - Quality Management",
-        "ISO 14001 - Environmental Management",
-        "ISO 45001 - Occupational Health & Safety",
-        "ISO 27001 - Information Security",
-        "ISO 50001 - Energy Management",
-        "ISO 22301 - Business Continuity",
-        "ISO 13485 - Medical Devices Quality",
-        "ISO 37001 - Anti-Bribery Management",
+      id: "manpower",
+      icon: Users,
+      title: "Safety Manpower Recruitment",
+      description: "End-to-end recruitment of qualified EHS professionals through domain-specific screening, compliance evaluation, and transparent hiring processes.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      link: "/manpower",
+      features: [
+        "EHS Manpower Recruitment (Client Payroll)",
+        "Domain-Specific Talent Sourcing",
+        "Technical & Compliance Screening",
+        "Safety Leadership Hiring",
+        "Multi-Industry Support",
+        "End-to-End Recruitment Coordination"
       ],
+      color: "#6B8E23"
     },
     {
-      id: "automotive",
-      icon: Factory,
-      title: "Automotive & Industry Standards",
-      shortTitle: "Automotive",
-      color: "#2C5F7C",
-      bgColor: "#E8F1F5",
-      description: "Specialized automotive quality standards including IATF and VDA process, product, and system audits.",
-      services: [
-        "IATF 16949 - Automotive Quality Management",
-        "VDA 6.1 - Quality Management System Audit",
-        "VDA 6.3 - Process Audit",
-        "VDA 6.5 - Product Audit",
+      id: "specialized",
+      icon: Target,
+      title: "Specialized Services",
+      description: "Diagnostic-led assessments and integrated retainer models combining Safety with Operational Excellence for sustainable performance improvement.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      link: "/specialized",
+      features: [
+        "SQDCIPE Diagnostic Framework",
+        "Monthly Integrated Retainer Model",
+        "Lean + EHS Integration",
+        "Safety Culture Transformation",
+        "Operational Excellence Programs",
+        "Customized EHS Solutions"
       ],
-    },
-    {
-      id: "food",
-      icon: Utensils,
-      title: "Food Safety & Hygiene",
-      shortTitle: "Food Safety",
-      color: "#D97706",
-      bgColor: "#FEF3C7",
-      description: "Food safety management systems, HACCP implementation, and regulatory compliance for food industry.",
-      services: [
-        "ISO 22000 / FSSC 22000",
-        "HACCP Implementation",
-        "BRCGS Food Safety",
-        "FSSAI Compliance Support",
-      ],
-    },
+      color: "#8B7355"
+    }
   ];
 
   const approach = [
@@ -148,10 +132,6 @@ export default function ServicesPage() {
       description: "Ongoing support and monitoring to maintain compliance excellence",
     },
   ];
-
-  const filteredCategories = selectedCategory === "all" 
-    ? serviceCategories 
-    : serviceCategories.filter(cat => cat.id === selectedCategory);
 
   return (
     <div className="min-h-screen bg-white">
@@ -187,118 +167,97 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Comprehensive compliance solutions across regulatory, quality, safety, and sustainability standards. From gap assessment to certification readiness.
+              End-to-end EHS solutions from compliance audits to training, software, manpower, and specialized consulting services.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Category Filter Tabs */}
-      <section className="bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex overflow-x-auto gap-2 py-4 scrollbar-hide">
-            <button
-              onClick={() => setSelectedCategory("all")}
-              className={`px-6 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 ${
-                selectedCategory === "all"
-                  ? "bg-[#5B8C5A] text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              All Services
-            </button>
-            {serviceCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? "bg-[#5B8C5A] text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {category.shortTitle}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
+      {/* Services Grid - Vertical Cards with Images */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredCategories.map((category, index) => {
-              const Icon = category.icon;
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              What We Offer
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Complete EHS solutions tailored to your industry needs and organizational goals
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {mainServices.map((service, index) => {
+              const Icon = service.icon;
               return (
                 <div
-                  key={category.id}
+                  key={service.id}
                   className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-[#5B8C5A]/30 hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    animation: "fadeInUp 0.6s ease-out forwards"
+                  }}
                 >
-                  {/* Card Header with Icon and Color */}
-                  <div 
-                    className="p-8 relative overflow-hidden"
-                    style={{ 
-                      background: `linear-gradient(135deg, ${category.color}15 0%, ${category.color}05 100%)`
-                    }}
-                  >
-                    {/* Decorative Circle */}
-                    <div 
-                      className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-10"
-                      style={{ backgroundColor: category.color }}
-                    />
-                    
-                    <div className="flex items-start gap-4 relative z-10">
-                      <div 
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                        style={{ backgroundColor: category.bgColor }}
-                      >
-                        <Icon style={{ color: category.color }} size={32} />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#5B8C5A] transition-colors">
-                          {category.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {category.description}
-                        </p>
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden">
+                    <div className="aspect-[16/10] relative">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                      
+                      {/* Icon badge on image */}
+                      <div className="absolute bottom-4 left-4">
+                        <div 
+                          className="w-14 h-14 rounded-xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300"
+                          style={{ backgroundColor: service.color }}
+                        >
+                          <Icon className="text-white" size={28} />
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Services List */}
-                  <div className="p-8 pt-6">
-                    <div className="space-y-3">
-                      {category.services.map((service, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-3 group/item hover:translate-x-2 transition-transform duration-200"
-                        >
-                          <CheckCircle2 
-                            className="flex-shrink-0 mt-0.5 transition-colors"
-                            style={{ color: category.color }}
-                            size={18}
-                          />
-                          <span className="text-gray-700 text-sm font-medium leading-relaxed">
-                            {service}
-                          </span>
-                        </div>
-                      ))}
+                  {/* Content Section */}
+                  <div className="p-6">
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#5B8C5A] transition-colors leading-tight">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="space-y-2 mb-4">
+                      <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wide">Key Services</h4>
+                      <ul className="space-y-2">
+                        {service.features.slice(0, 4).map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle2 
+                              className="flex-shrink-0 mt-0.5"
+                              style={{ color: service.color }}
+                              size={16}
+                            />
+                            <span className="text-sm text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Learn More Link */}
-                    <div className="mt-6 pt-6 border-t border-gray-100">
-                      <a
-                        href="/contact"
-                        className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group/link"
-                        style={{ color: category.color }}
+                    {/* CTA */}
+                    <div className="pt-4 border-t border-gray-100">
+                      <a 
+                        href={service.link} 
+                        className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all duration-300 group/link text-sm"
+                        style={{ color: service.color }}
                       >
-                        Get Started
-                        <ArrowRight 
-                          className="group-hover/link:translate-x-1 transition-transform" 
-                          size={16}
-                        />
+                        Explore Service
+                        <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
                       </a>
                     </div>
                   </div>
@@ -309,7 +268,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* How We Deliver - Enhanced with Images */}
+      {/* How We Deliver */}
       <section className="py-20 md:py-24 bg-white relative overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#5B8C5A]/5 rounded-full blur-3xl" />
@@ -390,16 +349,16 @@ export default function ServicesPage() {
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Your Trusted Compliance Partner
+                  Your Trusted EHS Partner
                 </h2>
                 
                 <div className="space-y-4 mb-8">
                   {[
                     "Practical, site-focused assessments",
-                    "Regulatory expertise across industries",
+                    "Comprehensive service portfolio",
                     "End-to-end implementation support",
-                    "No certification conflicts - pure consultancy",
-                    "Proven track record with 150+ clients",
+                    "Industry-specific expertise",
+                    "Proven track record across sectors"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-6 h-6 bg-[#5B8C5A]/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -425,13 +384,8 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <section className="relative py-20 md:py-24 overflow-hidden">
-        {/* Background with services.jpg */}
+        {/* Background */}
         <div className="absolute inset-0">
-          {/* <img
-            src="/services4.jpeg"
-            alt="Contact LEAN EHS"
-            className="w-full h-full object-cover"
-          /> */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/95 via-[#4A7449]/90 to-[#4A6FA5]/95" />
         </div>
 
@@ -444,10 +398,10 @@ export default function ServicesPage() {
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Need Help With Compliance?
+            Need Help With EHS Compliance?
           </h2>
           <p className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Discuss your specific requirements with our compliance experts. We're here to help you achieve excellence.
+            Discuss your specific requirements with our EHS experts. We're here to help you achieve safety and compliance excellence.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -468,40 +422,41 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* WhatsApp Button */}
       <a
-            href="https://wa.me/919028360700"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-10 right-10 z-50 group"
-            aria-label="Chat on WhatsApp"
-            >
-            <div className="relative">
-            {/* Pulsing Ring */}
-            {/* <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div> */}
+        href="https://wa.me/919028360700"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-10 right-10 z-50 group"
+        aria-label="Chat on WhatsApp"
+      >
+        <div className="relative">
+          {/* Button */}
+          <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <MessageCircle className="text-white" size={32} />
+          </div>
 
-            {/* Button */}
-            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-              <MessageCircle className="text-white" size={32} />
-            </div>
-
-            {/* Tooltip */}
-            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-              Chat with us on WhatsApp
-              {/* Arrow */}
-              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
-            </div>
-            </div>
-            </a>
+          {/* Tooltip */}
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+            Chat with us on WhatsApp
+            {/* Arrow */}
+            <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+          </div>
+        </div>
+      </a>
 
       <Footer />
 
       <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </div>

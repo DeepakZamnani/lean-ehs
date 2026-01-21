@@ -7,6 +7,12 @@ import ContactPage from './components/ContactPage';
 import HomePage from './components/HomePage';
 import IndustriesPage from './components/IndustriesPage'; 
 import ServicesPage from './components/ServicesPage';
+import TrainingPage from './components/trainingPage.jsx';
+import ManpowerPage from './components/ManpowerPage.jsx';
+import SoftwarePage from './components/SoftwarePage.jsx';
+import AuditPage from './components/AuditPage.jsx';
+import SpecializedPage from './components/SpecializedPage.jsx';
+
 export default function App() {
   return (
     <Router>
@@ -19,8 +25,12 @@ export default function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/industries" element={<IndustriesPage />} />
             <Route path="/services" element={<ServicesPage />} />
-   
-
+            <Route path="/training" element={<TrainingPage />} />
+            <Route path="/manpower" element={<ManpowerPage />} />
+            <Route path="/software" element={<SoftwarePage />} />
+            <Route path="/audit" element={<AuditPage />} />
+            <Route path="/specialized" element={<SpecializedPage />} />
+            
           </Routes>
         </main>
       </div>
