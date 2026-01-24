@@ -14,7 +14,9 @@ import {
   BarChart3,
   ClipboardCheck,
   BookOpen,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  Star
 } from "lucide-react";
 
 import Header from "./Header";
@@ -25,31 +27,38 @@ export default function SpecializedPage() {
     {
       id: 1,
       icon: Layers,
-      title: "SQDCIPE Diagnostic Framework",
-      description: "The SQDCIPE Diagnostic Framework is a structured, diagnostic-led assessment model that integrates Safety, Quality, Delivery, Cost, Inventory, People, and Environment to evaluate overall operational and EHS performance.",
+      title: "SQDCIPE Diagnostic Framework – Exclusive in the Industry",
+      subtitle: "The Only Integrated SQDCIPE Diagnostic for Actionable Insights",
+      badge: "Exclusive. Proprietary. Measurable.",
+      description: "Most consultancies offer generic audits. Our proprietary SQDCIPE Diagnostic Framework evaluates Safety, Quality, Delivery, Cost, Inventory & Productivity in a single integrated view. The result: actionable insights that drive real improvements—something no other provider offers.",
       highlights: [
         "In-depth on-site diagnostic study (typically 5 days or more)",
         "Assess project against each SQDCIPE element",
         "Identify systemic gaps and operational inefficiencies",
         "Define clear, measurable improvement actions",
-        "Actionable deliverables aligned with business objectives"
+        "Actionable deliverables aligned with business objectives",
+        "6 pillars converging into a Safe & Efficient Workplace"
       ],
-      color: "from-[#5B8C5A] to-[#4A7449]"
+      color: "from-[#5B8C5A] to-[#4A7449]",
+      isExclusive: true
     },
     {
       id: 2,
       icon: Calendar,
-      title: "Monthly Integrated Retainer Model",
-      description: "A single-window, comprehensive EHS engagement designed to deliver continuous compliance, improvement, and safety maturity rather than one-time interventions. Bundled service packages at an optimized monthly cost.",
+      title: "Monthly Retainer Plans – Safety as a Service",
+      subtitle: "Continuous Safety Excellence – Nobody Else Does It Like This",
+      badge: "Ongoing. Proactive. Transformative.",
+      description: "One-time audits are outdated. Our Monthly Retainer Plans provide ongoing, proactive safety support that ensures sustained improvements and a culture of safety—a service model unique in the industry.",
       highlights: [
-        "Bundled EHS service packages (Basic, Standard, Transformation)",
-        "Site visits, training programs, and audits",
-        "Document reviews and Gemba walks",
-        "Comprehensive performance reports",
-        "On-site and remote engagement support",
-        "Sustained performance and long-term EHS excellence"
+        "Basic Plan: Regular audits & compliance checks",
+        "Standard Plan: Continuous monitoring & training programs",
+        "Transformation Plan: Full-scale safety culture transformation integrated with Lean practices",
+        "Site visits, document reviews, and Gemba walks",
+        "Comprehensive performance reports and CAPA tracking",
+        "On-site and remote engagement support for sustained performance"
       ],
-      color: "from-[#4A6FA5] to-[#3d5a8f]"
+      color: "from-[#4A6FA5] to-[#3d5a8f]",
+      isExclusive: true
     }
   ];
 
@@ -191,8 +200,8 @@ export default function SpecializedPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-[#5B8C5A]/30 shadow-sm">
-              <Target className="text-[#5B8C5A]" size={20} />
-              <span className="text-sm font-semibold text-gray-700">Specialized EHS Solutions</span>
+              <Star className="text-[#5B8C5A]" size={20} fill="#5B8C5A" />
+              <span className="text-sm font-semibold text-gray-700">Exclusive Specialized Solutions</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
@@ -203,7 +212,7 @@ export default function SpecializedPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Diagnostic-led assessments and integrated retainer models that combine 
+              Proprietary diagnostic frameworks and continuous partnership models that combine 
               Safety with Operational Excellence for sustainable performance improvement.
             </p>
 
@@ -258,11 +267,15 @@ export default function SpecializedPage() {
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5B8C5A]/10 to-[#4A6FA5]/10 px-4 py-2 rounded-full mb-4">
+              <Sparkles className="text-[#5B8C5A]" size={18} />
+              <span className="text-sm font-semibold text-gray-700">Unique in the Industry</span>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Our Specialized Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Unique frameworks and engagement models that differentiate LEAN EHS 
+              Exclusive frameworks and engagement models that differentiate LEAN EHS 
               from traditional consulting approaches.
             </p>
           </div>
@@ -274,12 +287,27 @@ export default function SpecializedPage() {
               return (
                 <div
                   key={service.id}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-[#5B8C5A]/30 hover:-translate-y-2"
+                  className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:-translate-y-2 relative"
                   style={{ 
                     animationDelay: `${index * 0.1}s`,
                     animation: "fadeInUp 0.6s ease-out forwards"
                   }}
                 >
+                  {/* Exclusive Badge */}
+                  {service.isExclusive && (
+                    <div className="absolute -top-3 -right-3 z-20">
+                      <div className="relative">
+                        {/* Pulsing ring animation */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#5B8C5A] to-[#4A6FA5] rounded-full animate-ping opacity-75"></div>
+                        {/* Badge */}
+                        <div className="relative bg-gradient-to-r from-[#5B8C5A] to-[#4A6FA5] text-white px-4 py-2 rounded-full text-xs font-bold tracking-wider shadow-lg flex items-center gap-2">
+                          <Star size={14} fill="white" />
+                          EXCLUSIVE
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Card Header with Icon and Color */}
                   <div 
                     className="p-8 relative overflow-hidden"
@@ -302,6 +330,17 @@ export default function SpecializedPage() {
                         <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#5B8C5A] transition-colors">
                           {service.title}
                         </h3>
+                        
+                        {/* Subtitle Badge */}
+                        <div className="inline-block bg-gradient-to-r from-[#5B8C5A]/10 to-[#4A6FA5]/10 px-3 py-1 rounded-full mb-3">
+                          <p className="text-xs font-bold text-[#5B8C5A]">
+                            {service.badge}
+                          </p>
+                        </div>
+                        
+                        <p className="text-gray-700 text-sm font-semibold mb-2">
+                          {service.subtitle}
+                        </p>
                         <p className="text-gray-600 text-sm leading-relaxed">
                           {service.description}
                         </p>
@@ -332,9 +371,9 @@ export default function SpecializedPage() {
                     <div className="mt-6 pt-6 border-t border-gray-100">
                       <a
                         href="/contact"
-                        className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group/link text-[#5B8C5A]"
+                        className="inline-flex items-center gap-2 text-sm font-semibold transition-colors group/link text-[#5B8C5A] hover:text-[#4A6FA5]"
                       >
-                        Learn More
+                        Request Detailed Proposal
                         <ArrowRight 
                           className="group-hover/link:translate-x-1 transition-transform" 
                           size={16}
@@ -342,6 +381,9 @@ export default function SpecializedPage() {
                       </a>
                     </div>
                   </div>
+
+                  {/* Glowing border effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/5 via-transparent to-[#4A6FA5]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 </div>
               );
             })}
@@ -353,11 +395,15 @@ export default function SpecializedPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5B8C5A]/10 to-[#4A6FA5]/10 px-4 py-2 rounded-full mb-4">
+              <Target className="text-[#5B8C5A]" size={18} />
+              <span className="text-sm font-semibold text-gray-700">Integrated Assessment</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What SQDCIPE Diagnostic Achieves
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive assessment across seven critical operational elements
+              6 Pillars Converging into a Safe & Efficient Workplace
             </p>
           </div>
 
@@ -382,10 +428,8 @@ export default function SpecializedPage() {
         </div>
       </section>
 
-      
-
       {/* Service Gallery Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -446,12 +490,12 @@ export default function SpecializedPage() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <Target className="w-16 h-16 mx-auto mb-6 text-white" />
+          <Sparkles className="w-16 h-16 mx-auto mb-6 text-white" />
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Transform Your EHS Performance?
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Discover how our SQDCIPE Framework or Monthly Retainer Model can drive 
+            Discover how our exclusive SQDCIPE Framework or Monthly Retainer Model can drive 
             measurable improvements in safety, compliance, and operational excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

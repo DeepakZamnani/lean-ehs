@@ -16,6 +16,9 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ClipboardCheck, GraduationCap, Code } from "lucide-react";
+
+
 
 import { MessageCircle } from "lucide-react";
 
@@ -39,44 +42,55 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, []);
 
-  const services = [
+  const mainServices = [
     {
-      icon: Shield,
-      title: "Regulatory EHS & Safety Audits",
-      description:
-        "Comprehensive compliance audits covering electrical safety, fire safety, and regulatory EHS requirements.",
-    },
-    {
-      icon: Award,
-      title: "ISO Management Systems",
-      description:
-        "Implementation support for ISO 9001, 14001, 45001, 27001, 50001, and industry-specific standards.",
-    },
-    {
-      icon: Leaf,
-      title: "Ethical Trade & Sustainability",
-      description:
-        "SMETA, RBA, EcoVadis, SA8000, WRAP assessments and sustainability compliance solutions.",
-    },
-    {
-      icon: FileCheck,
-      title: "Environmental & Waste Compliance",
-      description:
-        "IS 14489, environmental legal compliance, and waste management rule adherence.",
-    },
-    {
-      icon: Factory,
-      title: "Industry-Specific Standards",
-      description:
-        "IATF 16949, VDA 6.x, ISO 22000, HACCP, BRCGS, and medical device compliance.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Audit Readiness & Support",
-      description:
-        "End-to-end support from gap assessment to corrective action closure and audit facilitation.",
-    },
-  ];
+    id: "specialized",
+    icon: Target,
+    title: "Specialized Services",
+    description:
+      "Diagnostic-led assessments and integrated Lean + EHS retainer models for sustainable performance improvement.",
+    link: "/specialized",
+    color: "#8B7355",
+  },
+  {
+    id: "audit",
+    icon: ClipboardCheck,
+    title: "Audit & Compliance Services",
+    description:
+      "Comprehensive audit and compliance assessment services covering regulatory, quality, safety, and sustainability requirements across industries.",
+    link: "/audit",
+    color: "#5B8C5A",
+  },
+  {
+    id: "training",
+    icon: GraduationCap,
+    title: "Training & Capability Development",
+    description:
+      "Comprehensive EHS training programs designed to build competency, ensure compliance, and strengthen workplace safety culture.",
+    link: "/training",
+    color: "#4A6FA5",
+  },
+  {
+    id: "software",
+    icon: Code,
+    title: "EHS Software & Digital Solutions",
+    description:
+      "Digital EHS platforms to manage incidents, hazards, compliance, and performance with real-time insights.",
+    link: "/software",
+    color: "#2C5F7C",
+  },
+  {
+    id: "manpower",
+    icon: Users,
+    title: "Safety Manpower Recruitment",
+    description:
+      "End-to-end recruitment of qualified EHS professionals through domain-specific screening and evaluation.",
+    link: "/manpower",
+    color: "#6B8E23",
+  },
+  
+];
+
 
   
 
@@ -138,17 +152,16 @@ useEffect(() => {
 
       {/* Headline */}
       <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-        Safety isn’t a feature.
+        Lean EHS Solutions
         <span className="block text-[#5B8C5A] mt-2">
-          It’s a commitment.
+          Safer & Smarter Workplaces
         </span>
       </h1>
 
       {/* Description */}
       <p className="text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
-        Industrial-grade <span className="font-semibold text-[#5B8C5A]">EHS compliance</span> and 
-        <span className="font-semibold text-[#5B8C5A]"> safety audits</span> that protect people,
-        operations, and reputation.
+        We combine <span className="font-semibold text-[#5B8C5A]"> Lean methodology</span> with
+        <span className="font-semibold text-[#5B8C5A]"> EHS expertise</span> to improve safety, efficiency, and sustainability.
       </p>
 
       {/* CTA */}
@@ -296,31 +309,68 @@ useEffect(() => {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Core Service Highlights
+              Lean EHS Solutions for Safer & Smarter Workplaces
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Comprehensive compliance solutions tailored to your business needs
+              We're different: Not just Safety, Environment & Health—we focus on overall organizational performance, integrating Safety with Quality, Delivery, Cost, Inventory & Productivity (SQDCIP) to deliver measurable results.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-  {services.map((service, index) => {
+  {mainServices.map((service, index) => {
     const Icon = service.icon;
+    const isSpecialized = service.id === "specialized";
+    
     return (
-      <div
+      <a
         key={index}
-        className="group relative bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+        href={service.link}
+        className={`group relative bg-white rounded-2xl border overflow-hidden block transition-all duration-300 hover:-translate-y-2 ${
+          isSpecialized
+            ? "border-[#5B8C5A] border-2 shadow-xl hover:shadow-2xl ring-2 ring-[#5B8C5A]/20 scale-105"
+            : "border-gray-100 shadow-md hover:shadow-2xl"
+        }`}
       >
+        {/* Featured Badge - Only for Specialized Services */}
+        {isSpecialized && (
+          <div className="absolute -top-3 -right-3 z-10">
+            <div className="relative">
+              {/* Pulsing ring animation */}
+              <div className="absolute inset-0 bg-[#5B8C5A] rounded-full animate-ping opacity-75"></div>
+              {/* Badge */}
+              <div className="relative bg-gradient-to-r from-[#5B8C5A] to-[#4A6FA5] text-white px-4 py-2 rounded-full text-xs font-bold tracking-wider shadow-lg flex items-center gap-2">
+                <Sparkles size={14} />
+                FEATURED
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Left Accent Bar */}
-        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#5B8C5A] to-[#4A6FA5] opacity-80" />
+        <div className={`absolute left-0 top-0 h-full bg-gradient-to-b from-[#5B8C5A] to-[#4A6FA5] ${
+          isSpecialized ? "w-2" : "w-1"
+        } opacity-80`} />
+
+        {/* Glowing border effect for Specialized */}
+        {isSpecialized && (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/10 via-transparent to-[#4A6FA5]/10 pointer-events-none" />
+        )}
 
         {/* Header */}
         <div className="p-8 pb-6">
           <div className="flex items-center gap-4 mb-5">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-              <Icon className="text-[#5B8C5A]" size={30} />
+            <div className={`w-14 h-14 rounded-xl bg-gradient-to-br flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform ${
+              isSpecialized
+                ? "from-[#5B8C5A]/20 to-[#4A6FA5]/20 ring-2 ring-[#5B8C5A]/30"
+                : "from-[#F0F7F0] to-[#E8F3F8]"
+            }`}>
+              <Icon className={isSpecialized ? "text-[#5B8C5A]" : "text-[#5B8C5A]"} size={30} />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 leading-snug group-hover:text-[#5B8C5A] transition-colors">
+            <h3 className={`text-xl font-bold leading-snug transition-colors ${
+              isSpecialized
+                ? "text-[#5B8C5A] group-hover:text-[#4A6FA5]"
+                : "text-gray-900 group-hover:text-[#5B8C5A]"
+            }`}>
               {service.title}
             </h3>
           </div>
@@ -331,12 +381,16 @@ useEffect(() => {
         </div>
 
         {/* Divider */}
-        <div className="mx-8 h-px bg-gray-100" />
+        <div className={`mx-8 h-px ${isSpecialized ? "bg-[#5B8C5A]/20" : "bg-gray-100"}`} />
 
         {/* Footer CTA */}
-        <div className="px-8 py-5 flex items-center justify-between">
-          <span className="text-sm font-semibold text-[#5B8C5A] tracking-wide">
-            Explore Service
+        <div className={`px-8 py-5 flex items-center justify-between ${
+          isSpecialized ? "bg-gradient-to-r from-[#5B8C5A]/5 to-[#4A6FA5]/5" : ""
+        }`}>
+          <span className={`text-sm font-semibold tracking-wide ${
+            isSpecialized ? "text-[#5B8C5A]" : "text-[#5B8C5A]"
+          }`}>
+            {isSpecialized ? "🌟 Discover Premium Service" : "Explore Service"}
           </span>
           <ArrowRight
             size={18}
@@ -345,8 +399,12 @@ useEffect(() => {
         </div>
 
         {/* Hover Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      </div>
+        <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity ${
+          isSpecialized
+            ? "from-[#5B8C5A]/10 to-[#4A6FA5]/10"
+            : "from-[#5B8C5A]/5 to-transparent"
+        }`} />
+      </a>
     );
   })}
 </div>

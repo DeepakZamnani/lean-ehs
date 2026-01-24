@@ -114,22 +114,40 @@ export default function IndustriesPage() {
           Tailored compliance solutions across diverse industrial sectors with deep regulatory expertise and industry-specific knowledge.
         </p>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-6 max-w-md">
-          {[
-            { number: "6+", label: "Industries" },
-            { number: "50+", label: "Active Clients" },
-            { number: "100%", label: "Compliance Rate" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-            >
-              <div className="text-3xl font-bold text-[#4A7449]">{stat.number}</div>
-              <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl">
+  {[
+    { label: "Practical On-ground EHS Expertise", icon: CheckCircle2 },
+    { label: "Real-world Solutions, Not Just Paper Compliance", icon: Target },
+    { label: "Trusted by Growing Businesses", icon: Users },
+    { label: "Industry-Focused Safety & Compliance Support", icon: Shield },
+  ].map((stat, index) => {
+    const Icon = stat.icon;
+    return (
+      <div
+        key={index}
+        className="group relative bg-white/70 backdrop-blur-sm rounded-2xl p-6 
+                   shadow-md border border-gray-100 
+                   transition-all duration-300 
+                   hover:shadow-xl hover:-translate-y-1"
+      >
+        {/* Left accent line */}
+        <span className="absolute left-0 top-4 bottom-4 w-1 bg-[#4A7449]/70 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+
+        <div className="flex items-start gap-4">
+          {/* Icon */}
+          <div className="p-2 rounded-lg bg-[#4A7449]/10 text-[#4A7449]">
+            <Icon size={18} />
+          </div>
+
+          {/* Text */}
+          <p className="text-sm md:text-base font-medium text-gray-700 leading-snug">
+            {stat.label}
+          </p>
         </div>
+      </div>
+    );
+  })}
+</div>
       </div>
 
       <div className="flex justify-end items-center h-full">
