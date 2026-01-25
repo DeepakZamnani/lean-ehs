@@ -717,7 +717,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-<section className="relative min-h-screen overflow-hidden flex items-center bg-[#F8FBF8] pt-28 md:pt-28">
+<section className="relative min-h-screen overflow-hidden flex items-center 
+                    bg-[#F8FBF8] pt-28 pb-20 md:pt-28 md:pb-28">
 
   {/* Soft organic background shapes */}
   <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-[#5B8C5A]/10 rounded-full blur-3xl" />
