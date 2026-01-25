@@ -138,7 +138,7 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Section with Background Image */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden pt-28 md:pt-28">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

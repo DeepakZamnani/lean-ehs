@@ -89,7 +89,7 @@ export default function IndustriesPage() {
 
       {/* Hero Section - Enhanced Gradient Style */}
 {/* Hero Section - Two Column with Image */}
-<section className="relative py-20 md:py-32 overflow-hidden bg-[#4A7449]/10">
+<section className="relative py-20 md:py-32 overflow-hidden bg-[#4A7449]/10 pt-28 md:pt-28">
   {/* Decorative Circles */}
   <div className="absolute top-0 left-0 w-96 h-96 bg-[#4A7449]/20 rounded-full blur-3xl animate-blob -translate-x-1/2 -translate-y-1/2" />
   <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4A7449]/20 rounded-full blur-3xl animate-blob animation-delay-2000 translate-x-1/2 translate-y-1/2" />

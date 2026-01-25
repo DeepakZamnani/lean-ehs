@@ -122,7 +122,8 @@ useEffect(() => {
     <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-<section className="relative min-h-screen overflow-hidden flex items-center bg-[#F8FBF8]">
+<section className="relative min-h-screen overflow-hidden flex items-center bg-[#F8FBF8] pt-28 md:pt-28">
+
   {/* Soft organic background shapes */}
   <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-[#5B8C5A]/10 rounded-full blur-3xl" />
   <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-[#4A6FA5]/10 rounded-full blur-3xl" />
