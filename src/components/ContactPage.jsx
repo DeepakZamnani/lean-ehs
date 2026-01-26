@@ -137,7 +137,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   {/* Email - Clickable */}
                   <a 
-                    href="mailto:leanehs@outlook.com"
+                    href="mailto:info@leanehs.in"
                     className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#5B8C5A]/30 block cursor-pointer hover:-translate-y-1"
                   >
                     <div className="flex items-start gap-4">

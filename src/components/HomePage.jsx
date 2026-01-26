@@ -751,8 +751,8 @@ export default function HomePage() {
 
             {/* Description */}
             <p className="text-base md:text-lg lg:text-xl text-gray-700 max-w-xl leading-relaxed">
-              We combine <span className="font-semibold text-[#5B8C5A]"> Lean methodology</span> with
-              <span className="font-semibold text-[#5B8C5A]"> EHS expertise</span> to improve safety, efficiency, and sustainability.
+              
+               We're different: Not just Safety, Environment & Health. We focus on overall organizational performance, integrating Safety with Quality, Delivery, Cost, Inventory & Productivity (SQDCIP) to deliver measurable results.
             </p>
 
             {/* CTA */}
@@ -831,7 +831,8 @@ export default function HomePage() {
               Why Lean EHS
             </h2>
             <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto px-4">
-              Your trusted partner for compliance clarity and audit confidence
+             We combine  Lean methodology with
+               EHS expertise to improve safety, efficiency, and sustainability.
             </p>
           </div>
           
@@ -882,16 +883,18 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-block mb-4">
-              <span className="text-[#5B8C5A] font-semibold text-xs md:text-sm tracking-wider uppercase">
-                Our Services
-              </span>
+             <span className="text-[#5B8C5A] font-bold text-base md:text-lg tracking-widest uppercase">
+  Our Services
+</span>
+
+
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4">
+            {/* <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 px-4">
               Lean EHS Solutions for Safer & Smarter Workplaces
             </h2>
             <p className="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
-              We're different: Not just Safety, Environment & Health—we focus on overall organizational performance, integrating Safety with Quality, Delivery, Cost, Inventory & Productivity (SQDCIP) to deliver measurable results.
-            </p>
+              
+            </p> */}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">

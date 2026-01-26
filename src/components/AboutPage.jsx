@@ -48,55 +48,70 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <section className="relative py-20 md:py-32 bg-[#4A7449]/10 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-36 bg-[#4A7449]/10 overflow-hidden">
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
       {/* Left Column - Image */}
-      <img
-          src="/logo_lean2.png" // Replace with your image
+      <div className="flex justify-center">
+        <img
+          src="/logo_lean2.png"
           alt="Lean EHS Illustration"
-          className="w-full max-w-3xl h-[70vh] object-cover"
-      />
+          className="w-full max-w-3xl h-[60vh] md:h-[70vh] object-contain"
+        />
+      </div>
 
       {/* Right Column - Text */}
-      <div className="space-y-6">
+      <div className="space-y-6 py-6 md:py-0">
         <div className="w-16 h-1 bg-[#4A7449] rounded-full" />
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-          <span className="text-[#4A7449]">Lean EHS</span> <br />
+          <span className="text-[#4A7449]">Lean EHS</span>
+          <br />
           Compliance & Safety Partner
         </h1>
 
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-          <span className="font-semibold text-gray-900">Lean EHS</span> is a professional consultancy helping organizations translate{" "}
-          <span className="font-medium text-[#4A7449]">regulatory requirements</span> into practical, on-ground EHS systems that protect people, operations, and reputation.
+          <span className="font-semibold text-gray-900">Lean EHS</span> is a
+          professional consultancy helping organizations translate{" "}
+          <span className="font-medium text-[#4A7449]">
+            regulatory requirements
+          </span>{" "}
+          into practical, on-ground EHS systems that protect people, operations,
+          and reputation.
         </p>
 
         <p className="text-base text-gray-600 leading-relaxed">
-          We specialize in compliance assessments, audit facilitation, and implementation-ready solutions across EHS, Quality, Sustainability, and Regulatory domains.
+          We specialize in compliance assessments, audit facilitation, and
+          implementation-ready solutions across EHS, Quality, Sustainability,
+          and Regulatory domains.
         </p>
       </div>
     </div>
   </div>
 
+  {/* Top-left green triangle */}
   <svg
-    className="absolute top-0 left-0 w-40 h-40 md:w-60 md:h-60"
+    className="absolute top-0 left-0 w-32 h-32 md:w-56 md:h-56 z-0"
     viewBox="0 0 100 100"
     preserveAspectRatio="none"
+    aria-hidden="true"
   >
     <polygon points="0,0 100,0 0,100" fill="#4A7449" />
   </svg>
 
-  {/* Dark green triangle at bottom-right */}
+  {/* Bottom-right green triangle */}
   <svg
-    className="absolute bottom-0 right-0 w-40 h-40 md:w-60 md:h-60"
+    className="absolute bottom-0 right-0 w-32 h-32 md:w-56 md:h-56 z-0"
     viewBox="0 0 100 100"
     preserveAspectRatio="none"
+    aria-hidden="true"
   >
     <polygon points="0,100 100,100 100,0" fill="#4A7449" />
   </svg>
 </section>
+
 
 
 

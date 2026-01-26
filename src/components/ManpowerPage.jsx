@@ -35,7 +35,21 @@ export default function ManpowerPage() {
       color: "from-[#5B8C5A] to-[#4A7449]"
     },
     {
-      id: 2,
+  id: 2,
+  icon: Briefcase,
+  title: "Other Professional Resource Deployment (Operations, HR, IT & Projects)",
+  description: "In addition to EHS professionals, we support deployment of qualified non-EHS resources to strengthen operational, administrative, technical, and project execution capabilities based on client requirements.",
+  highlights: [
+    "Operations, HR, IT & project resource support",
+    "Requirement-based candidate sourcing",
+    "Role-specific screening & evaluation",
+    "Client payroll engagement model"
+  ],
+  color: "from-[#2F855A] to-[#276749]"
+}
+,
+    {
+      id: 3,
       icon: Target,
       title: "Domain-Specific Safety Talent Sourcing",
       description: "Our recruitment process is focused exclusively on safety and EHS roles across industries. We source professionals with proven on-site exposure and statutory knowledge.",
@@ -48,7 +62,7 @@ export default function ManpowerPage() {
       color: "from-[#4A6FA5] to-[#3d5a8f]"
     },
     {
-      id: 3,
+      id: 4,
       icon: ClipboardCheck,
       title: "Technical & Compliance-Based Candidate Screening",
       description: "All candidates undergo in-depth technical screening by LEAN EHS's in-house EHS experts. Assessments include statutory compliance knowledge, industry exposure, and role-specific competencies.",
@@ -61,7 +75,7 @@ export default function ManpowerPage() {
       color: "from-blue-600 to-cyan-500"
     },
     {
-      id: 4,
+      id: 5,
       icon: Award,
       title: "Safety Leadership & Management Hiring",
       description: "We support recruitment for mid to senior-level safety leadership roles. This includes Safety Managers, Engineers, and senior EHS leadership positions.",
@@ -74,7 +88,7 @@ export default function ManpowerPage() {
       color: "from-purple-600 to-pink-500"
     },
     {
-      id: 5,
+      id: 6,
       icon: Building2,
       title: "Multi-Industry Safety Manpower Support",
       description: "We support safety manpower requirements across manufacturing, construction, logistics, warehousing, projects, oil & gas, pharma, and mining sectors.",
@@ -87,7 +101,7 @@ export default function ManpowerPage() {
       color: "from-emerald-600 to-green-500"
     },
     {
-      id: 6,
+      id: 7,
       icon: FileCheck,
       title: "End-to-End Recruitment Coordination",
       description: "LEAN EHS manages the complete recruitment lifecycle from sourcing to joining. We coordinate interviews, candidate communication, and selection timelines.",
@@ -100,7 +114,7 @@ export default function ManpowerPage() {
       color: "from-orange-600 to-red-500"
     },
     {
-      id: 7,
+      id: 8,
       icon: UserCheck,
       title: "Replacement Assurance & Recruitment Reliability",
       description: "We provide a one-time replacement guarantee for early attrition cases. This ensures continuity and hiring confidence for our clients.",
@@ -113,7 +127,7 @@ export default function ManpowerPage() {
       color: "from-teal-600 to-cyan-500"
     },
     {
-      id: 8,
+      id: 9,
       icon: Lock,
       title: "Confidential & Transparent Hiring Process",
       description: "All client and candidate information is handled with strict confidentiality. The recruitment process is transparent, structured, and professionally managed.",
@@ -226,29 +240,40 @@ export default function ManpowerPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Industries We Serve
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Specialized manpower solutions across diverse sectors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+            {[
+              "Manufacturing",
+              "Construction",
+              "Logistics",
+              "Warehousing",
+              "Projects",
+              "Oil & Gas",
+              "Pharma",
+              "Mining"
+            ].map((industry, index) => (
               <div 
                 key={index}
-                className="group p-6 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                  animation: "fadeInUp 0.6s ease-out forwards"
-                }}
+                className="p-4 rounded-xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-md transition-all duration-300 text-center"
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="text-white" size={24} />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
+                <p className="text-sm font-semibold text-gray-900">{industry}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      
 
       {/* Manpower Services Section */}
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
@@ -345,39 +370,8 @@ export default function ManpowerPage() {
         </div>
       </section>
 
-      {/* Industries Served Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Specialized manpower solutions across diverse sectors
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-            {[
-              "Manufacturing",
-              "Construction",
-              "Logistics",
-              "Warehousing",
-              "Projects",
-              "Oil & Gas",
-              "Pharma",
-              "Mining"
-            ].map((industry, index) => (
-              <div 
-                key={index}
-                className="p-4 rounded-xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-md transition-all duration-300 text-center"
-              >
-                <p className="text-sm font-semibold text-gray-900">{industry}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+      
 
       {/* Recruitment Process Gallery Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
@@ -424,6 +418,29 @@ export default function ManpowerPage() {
 
                 {/* Hover border effect */}
                 <div className="absolute inset-0 border-4 border-[#5B8C5A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Benefits Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="group p-6 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animation: "fadeInUp 0.6s ease-out forwards"
+                }}
+              >
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <benefit.icon className="text-white" size={24} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
