@@ -267,15 +267,36 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* DISCLAIMER */}
-<section className="bg-yellow-100 border-l-4 border-yellow-500 p-4 max-w-2xl mx-auto my-6 flex items-start gap-3 rounded">
-  <AlertCircle className="text-yellow-600 mt-1" size={24} />
+      {/* DISCLAIMER
+<section className="bg-white border border-gray-200 p-4 max-w-2xl mx-auto my-6 flex items-start gap-3 rounded-md">
+  <AlertCircle className="text-gray-500 mt-1" size={22} />
   <div>
-    <p className="text-yellow-800 font-semibold">
-      ⚠️ <span className="font-bold">Important Disclaimer:</span> Lean EHS provides consultancy and audit facilitation services only. We are not a certification or third-party audit body. Our role is to prepare and support organizations through compliance audits.
+    <p className="text-gray-700 text-sm">
+      <span className="font-semibold">Disclaimer:</span> 
     </p>
   </div>
+</section> */}
+
+<section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
+  <div className="max-w-5xl mx-auto">
+    <div className="flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-[#F0F7F0] to-white border border-[#5B8C5A]/30 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+      
+      <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] shadow-lg">
+        <Award className="text-white" size={28} />
+      </div>
+
+      <div className="text-center sm:text-left">
+        <h3 className="text-xl font-bold text-gray-900">
+          Disclaimer
+        </h3>
+        <p className="text-gray-600 text-sm mt-1">
+          Lean EHS provides consultancy and audit facilitation services only. We are not a certification or third-party audit body. Our role is to prepare and support organizations through compliance audits.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
+
 <a
             href="https://wa.me/919028360700"
             target="_blank"

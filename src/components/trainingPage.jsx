@@ -180,6 +180,19 @@ export default function TrainingPage() {
         "Reduce vehicle-related incidents"
       ],
       color: "from-emerald-600 to-green-500"
+    },
+    {
+      id: 13,
+      icon: Zap,
+      title: "Promotional Safety Campagin and Traning",
+      description: "We conduct engaging safety awareness campaigns and training programs focused on National Safety Day, Road Safety Day, and environmental responsibility. These initiatives promote a strong safety culture, improve risk awareness, and help reduce vehicle-related and workplace incidents.",
+      highlights: [
+        "National Safet Day Celebration Campaign and Training",
+        "Road Safety Day Campaign and Training",
+        "Environment Day Campagin and Training"
+        
+      ],
+      color: "from-indigo-600 to-blue-500"
     }
   ];
 
@@ -231,7 +244,8 @@ export default function TrainingPage() {
             alt="Training Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/95 via-[#F0F7F0]/90 to-[#E8F5E8]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/80 via-[#F0F7F0]/70 to-[#E8F5E8]/60"></div>
+
         </div>
 
         {/* Background decorative elements */}
@@ -280,7 +294,13 @@ export default function TrainingPage() {
             </div>
           </div>
         </div>
+
       </section>
+
+
+
+
+      
 
       {/* Benefits Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -399,6 +419,7 @@ export default function TrainingPage() {
           </div>
         </div>
       </section>
+      
 
       {/* Training Gallery Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -450,6 +471,27 @@ export default function TrainingPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
+  <div className="max-w-5xl mx-auto">
+    <div className="flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-[#F0F7F0] to-white border border-[#5B8C5A]/30 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+      
+      <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] shadow-lg">
+        <Award className="text-white" size={28} />
+      </div>
+
+      <div className="text-center sm:text-left">
+        <h3 className="text-xl font-bold text-gray-900">
+          Training Certifications Provided
+        </h3>
+        <p className="text-gray-600 text-sm mt-1">
+          Participants receive recognized training certifications upon successful completion, 
+          supporting compliance, audits, and workforce competency development.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] relative overflow-hidden">

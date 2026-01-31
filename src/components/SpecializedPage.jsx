@@ -188,7 +188,8 @@ export default function SpecializedPage() {
             alt="Specialized Services Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/95 via-[#F0F7F0]/90 to-[#E8F5E8]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/80 via-[#F0F7F0]/70 to-[#E8F5E8]/60"></div>
+
         </div>
 
         {/* Background decorative elements */}
@@ -239,29 +240,43 @@ export default function SpecializedPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* SQDCIPE Elements Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <div 
-                key={index}
-                className="group p-6 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                  animation: "fadeInUp 0.6s ease-out forwards"
-                }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="text-white" size={24} />
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5B8C5A]/10 to-[#4A6FA5]/10 px-4 py-2 rounded-full mb-4">
+              <Target className="text-[#5B8C5A]" size={18} />
+              <span className="text-sm font-semibold text-gray-700">Integrated Assessment</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What SQDCIPE Diagnostic Achieves
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              6 Pillars Converging into a Safe & Efficient Workplace
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            {sqdcipeElements.map((element, index) => {
+              const Icon = element.icon;
+              return (
+                <div 
+                  key={index}
+                  className="group p-4 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300 text-center"
+                >
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="text-white" size={24} />
+                  </div>
+                  <div className="text-2xl font-bold text-[#5B8C5A] mb-1">{element.letter}</div>
+                  <h3 className="text-sm font-bold text-gray-900 mb-1">{element.title}</h3>
+                  <p className="text-xs text-gray-600">{element.description}</p>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
+
 
       {/* Specialized Services Section */}
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
@@ -391,42 +406,7 @@ export default function SpecializedPage() {
         </div>
       </section>
 
-      {/* SQDCIPE Elements Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5B8C5A]/10 to-[#4A6FA5]/10 px-4 py-2 rounded-full mb-4">
-              <Target className="text-[#5B8C5A]" size={18} />
-              <span className="text-sm font-semibold text-gray-700">Integrated Assessment</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What SQDCIPE Diagnostic Achieves
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              6 Pillars Converging into a Safe & Efficient Workplace
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {sqdcipeElements.map((element, index) => {
-              const Icon = element.icon;
-              return (
-                <div 
-                  key={index}
-                  className="group p-4 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300 text-center"
-                >
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="text-white" size={24} />
-                  </div>
-                  <div className="text-2xl font-bold text-[#5B8C5A] mb-1">{element.letter}</div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-1">{element.title}</h3>
-                  <p className="text-xs text-gray-600">{element.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Service Gallery Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F0F7F0]">
@@ -473,6 +453,30 @@ export default function SpecializedPage() {
 
                 {/* Hover border effect */}
                 <div className="absolute inset-0 border-4 border-[#5B8C5A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="group p-6 rounded-2xl bg-gradient-to-br from-[#F0F7F0] to-white border border-[#5B8C5A]/20 hover:border-[#5B8C5A] hover:shadow-lg transition-all duration-300"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animation: "fadeInUp 0.6s ease-out forwards"
+                }}
+              >
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#5B8C5A] to-[#4A7449] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <benefit.icon className="text-white" size={24} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>

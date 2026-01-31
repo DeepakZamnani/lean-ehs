@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 import Header from './Header';
 import Footer from './Footer';
 import { 
@@ -28,6 +29,10 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+  
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,30 +40,61 @@ export default function ContactPage() {
     setError(null);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      // Get current date and time
+      const now = new Date();
+      const formattedTime = now.toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
       });
 
-      if (!response.ok) {
+      // Prepare template parameters matching your EmailJS template
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || "Not provided",
+        phone: formData.phone || "Not provided",
+        service: formData.service || "Not specified",
+        subject: `New Contact Form Inquiry - ${formData.service || "General"}`,
+        message: formData.message,
+        time: formattedTime,
+        to_email: "leanehs@outlook.com", // Your email
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      if (response.status === 200) {
+        setSuccess(true);
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+
+        // Auto-hide success message after 10 seconds
+        setTimeout(() => {
+          setSuccess(false);
+        }, 10000);
+      } else {
         throw new Error("Failed to send message");
       }
-
-      setSuccess(true);
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
     } catch (err) {
-      setError("Failed to send message. Please try again.");
-      console.error(err);
+      setError("Failed to send message. Please try again or contact us directly at leanehs@outlook.com");
+      console.error("EmailJS Error:", err);
     } finally {
       setLoading(false);
     }
@@ -75,9 +111,8 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white overflow-hidden">
       <Header />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden pt-28 md:pt-28">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
             src="/services.jpg"
@@ -85,20 +120,20 @@ export default function ContactPage() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A]/95 via-[#4A7449]/90 to-[#4A6FA5]/95" />
-          {/* Pattern Overlay */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }} />
+          <div 
+            className="absolute inset-0 opacity-10" 
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px'
+            }} 
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <Sparkles className="text-white" size={18} />
-              <span className="text-white font-medium text-sm">
-                Get In Touch
-              </span>
+              <span className="text-white font-medium text-sm">Get In Touch</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -133,11 +168,10 @@ export default function ContactPage() {
                   Have questions about compliance requirements or need expert guidance? Our team is here to help you navigate your EHS and sustainability obligations.
                 </p>
 
-                {/* Contact Cards */}
                 <div className="space-y-4">
-                  {/* Email - Clickable */}
+                  {/* Email Card */}
                   <a 
-                    href="mailto:info@leanehs.in"
+                    href="mailto:leanehs@outlook.com"
                     className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#5B8C5A]/30 block cursor-pointer hover:-translate-y-1"
                   >
                     <div className="flex items-start gap-4">
@@ -146,13 +180,13 @@ export default function ContactPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">Email</h3>
-                        <p className="text-gray-700 font-medium group-hover:text-[#5B8C5A] transition-colors">info@leanehs.in</p>
+                        <p className="text-gray-700 font-medium group-hover:text-[#5B8C5A] transition-colors">leanehs@outlook.com</p>
                         <p className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to send email →</p>
                       </div>
                     </div>
                   </a>
 
-                  {/* Phone - Clickable */}
+                  {/* Phone Card */}
                   <a 
                     href="tel:+919028360700"
                     className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 transition-all duration-300 border border-gray-100 hover:border-[#4A6FA5]/30 block cursor-pointer hover:-translate-y-1"
@@ -169,7 +203,7 @@ export default function ContactPage() {
                     </div>
                   </a>
 
-                  {/* WhatsApp - Clickable */}
+                  {/* WhatsApp Card */}
                   <a 
                     href="https://wa.me/919028360700"
                     target="_blank"
@@ -196,29 +230,34 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1 text-sm uppercase tracking-wide">Business Hours</h3>
-                        <p className="text-gray-700 text-sm">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                        <p className="text-gray-700 text-sm">Sat: 9:00 AM - 1:00 PM</p>
+                        <p className="text-gray-700 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Why Contact Us */}
+                {/* Why Choose LEAN EHS */}
                 <div className="mt-8 p-6 bg-gradient-to-br from-[#F0F7F0] to-[#E8F3F8] rounded-2xl shadow-md">
                   <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">Why Choose LEAN EHS?</h3>
                   <div className="space-y-3">
-                    {[
-                      { icon: Shield, text: "24-48 Hour Response Time" },
-                      { icon: Award, text: "Industry-Certified Experts" },
-                      { icon: Users, text: "Personalized Solutions" }
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center shadow-sm">
-                          <item.icon className="text-[#5B8C5A]" size={16} />
-                        </div>
-                        <span className="text-sm text-gray-700 font-medium">{item.text}</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center shadow-sm">
+                        <Shield className="text-[#5B8C5A]" size={16} />
                       </div>
-                    ))}
+                      <span className="text-sm text-gray-700 font-medium">24-48 Hour Response Time</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center shadow-sm">
+                        <Award className="text-[#5B8C5A]" size={16} />
+                      </div>
+                      <span className="text-sm text-gray-700 font-medium">Industry-Certified Experts</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center shadow-sm">
+                        <Users className="text-[#5B8C5A]" size={16} />
+                      </div>
+                      <span className="text-sm text-gray-700 font-medium">Personalized Solutions</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -265,6 +304,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        placeholder="Your full name"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
@@ -278,6 +318,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         required
+                        placeholder="Your company name"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
@@ -294,6 +335,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        placeholder="your.email@company.com"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
@@ -306,6 +348,7 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        placeholder="+91 XXXXX XXXXX"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                       />
                     </div>
@@ -322,13 +365,12 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5B8C5A] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select a service</option>
-                      <option value="regulatory">Regulatory EHS & Safety Audits</option>
-                      <option value="iso">ISO Management Systems</option>
-                      <option value="ethical">Ethical Trade & Sustainability</option>
-                      <option value="environmental">Environmental & Waste Compliance</option>
-                      <option value="automotive">Automotive Standards</option>
-                      <option value="food">Food Safety</option>
-                      <option value="other">Other</option>
+                      <option value="Training">Training</option>
+                      <option value="Audit & Compliance">Audit & Compliance</option>
+                      <option value="Software">Software</option>
+                      <option value="Manpower">Manpower</option>
+                      <option value="Specialized Solutions">Specialized Solutions</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
@@ -370,19 +412,14 @@ export default function ContactPage() {
 
       {/* CTA Section */}
       <section className="relative py-20 md:py-24 overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#5B8C5A] via-[#4A7449] to-[#4A6FA5]" />
-        
-        {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
         
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Sparkles className="text-white" size={18} />
-            <span className="text-white/90 text-sm font-medium">
-              Have Questions?
-            </span>
+            <span className="text-white/90 text-sm font-medium">Have Questions?</span>
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -401,34 +438,30 @@ export default function ContactPage() {
             <span>+91 9028360700</span>
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={22} />
           </a>
+        </div>
+      </section>
 
-          
-            <a
-            href="https://wa.me/919028360700"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-10 right-10 z-50 group"
-            aria-label="Chat on WhatsApp"
-            >
-            <div className="relative">
-            {/* Pulsing Ring */}
-            <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919028360700"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-10 right-10 z-50 group"
+        aria-label="Chat on WhatsApp"
+      >
+        <div className="relative">
+          <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
+          <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <MessageCircle className="text-white" size={32} />
+          </div>
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+            Chat with us on WhatsApp
+            <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+          </div>
+        </div>
+      </a>
 
-            {/* Button */}
-            <div className="relative w-16 h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-              <MessageCircle className="text-white" size={32} />
-            </div>
-
-            {/* Tooltip */}
-            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-              Chat with us on WhatsApp
-              {/* Arrow */}
-              <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45"></div>
-            </div>
-            </div>
-            </a>
-            <script>
-            {`
+      <style jsx>{`
         @keyframes ping {
           75%, 100% {
             transform: scale(2);
@@ -438,10 +471,7 @@ export default function ContactPage() {
         .animate-ping {
           animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
-      `}
-            </script>
-        </div>
-      </section>
+      `}</style>
 
       <Footer />
     </div>

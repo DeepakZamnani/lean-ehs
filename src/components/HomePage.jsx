@@ -627,7 +627,7 @@ import { MessageCircle } from "lucide-react";
 export default function HomePage() {
 
   const images = [
-    "/lean-img1.jpg",
+    "/logo_lean2.png",
     "/lean-img2.jpg",
     "/services.jpg",
   ];
@@ -637,7 +637,7 @@ export default function HomePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -798,11 +798,11 @@ export default function HomePage() {
                 <Shield className="text-[#5B8C5A]" size={20} />
                 <div>
                   <div className="text-xs md:text-sm font-bold text-gray-900">
-                    ISO-Aligned Audits
+                   Your Compliance Partner
                   </div>
-                  <div className="text-xs text-gray-600">
+                  {/* <div className="text-xs text-gray-600">
                     9001 · 14001 · 45001
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

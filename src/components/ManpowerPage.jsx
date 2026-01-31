@@ -189,7 +189,7 @@ export default function ManpowerPage() {
             alt="Manpower Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/95 via-[#F0F7F0]/90 to-[#E8F5E8]/85"></div>
+<div className="absolute inset-0 bg-gradient-to-br from-[#F0F7F0]/80 via-[#F0F7F0]/70 to-[#E8F5E8]/60"></div>
         </div>
 
         {/* Background decorative elements */}

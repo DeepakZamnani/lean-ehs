@@ -67,7 +67,8 @@ export default function Footer() {
                   size={18}
                   className="mt-0.5 text-[#5B8C5A] flex-shrink-0"
                 />
-                <span>info@leanehs.in</span>
+                {/* <span>info@leanehs.in</span> */}
+                <span>leanehs@outlook.com </span>
               </li>
               <li className="flex items-start space-x-2 text-gray-600 text-sm">
                 <Phone

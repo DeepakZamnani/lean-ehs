@@ -15,7 +15,10 @@ import {
   Award,
   TrendingUp,
   Users,
-  MessageCircle
+  MessageCircle,
+  GraduationCap,
+  MonitorPlay,
+  BookOpen,
 } from "lucide-react";
 
 export default function IndustriesPage() {
@@ -47,15 +50,7 @@ export default function IndustriesPage() {
       color: "#5B8C5A",
       bgColor: "#F0F7F0",
     },
-    {
-      icon: Shirt,
-      title: "Apparel & Textiles",
-      description:
-        "Ethical trade, sustainability, and compliance solutions for garment and textile manufacturers.",
-      services: "SMETA, WRAP, SA8000, EcoVadis, environmental compliance",
-      color: "#5B8C5A",
-      bgColor: "#F0F7F0",
-    },
+    
     {
       icon: Heart,
       title: "Healthcare & Medical Devices",
@@ -71,6 +66,15 @@ export default function IndustriesPage() {
       description:
         "Safety, environmental, and quality management for warehouse operations and logistics providers.",
       services: "Fire safety, electrical safety, ISO 9001, ISO 45001",
+      color: "#5B8C5A",
+      bgColor: "#F0F7F0",
+    },
+    {
+      icon: Shirt,
+      title: "Apparel & Textiles",
+      description:
+        "Ethical trade, sustainability, and compliance solutions for garment and textile manufacturers.",
+      services: "SMETA, WRAP, SA8000, EcoVadis, environmental compliance",
       color: "#5B8C5A",
       bgColor: "#F0F7F0",
     },
@@ -327,21 +331,28 @@ export default function IndustriesPage() {
           </div>
 
           {/* Additional Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
-            {[
-              { icon: Factory, label: "Manufacturing Plants" },
-              { icon: Shield, label: "Safety Audits" },
-              { icon: Award, label: "ISO Certifications" },
-              { icon: TrendingUp, label: "Compliance Rate" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20 hover:scale-110 transition-transform">
-                  <stat.icon className="text-white" size={28} />
-                </div>
-                <p className="text-white/90 text-sm font-medium">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+<div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-16 max-w-4xl mx-auto">
+  {[
+    { icon: Factory, label: "Manufacturing Plants" },
+    { icon: Shield, label: "Safety Audits" },
+    { icon: Award, label: "ISO Certifications" },
+    { icon: TrendingUp, label: "Compliance Rate" },
+
+    // 👇 NEW ITEMS ADDED
+    { icon: GraduationCap, label: "Certified Training Programs" },
+    { icon: MonitorPlay, label: "Training Software" },
+    { icon: Users, label: "Skilled Manpower" },
+    { icon: BookOpen, label: "Workforce Development" },
+  ].map((stat, index) => (
+    <div key={index} className="text-center">
+      <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20 hover:scale-110 transition-transform">
+        <stat.icon className="text-white" size={28} />
+      </div>
+      <p className="text-white/90 text-sm font-medium">{stat.label}</p>
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
 
@@ -376,7 +387,6 @@ export default function IndustriesPage() {
                     "Deep regulatory knowledge across all sectors",
                     "Industry-specific audit preparation",
                     "Customized compliance roadmaps",
-                    "Proven track record with 50+ clients",
                     "End-to-end implementation support"
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-3">
