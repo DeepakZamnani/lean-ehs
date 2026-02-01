@@ -83,8 +83,8 @@ export default function Footer() {
 
         <div className="border-t border-gray-200 mt-8 pt-8">
           <p className="text-gray-500 text-sm text-center">
-            © {new Date().getFullYear()} Lean EHS. All rights reserved. |
-            Consultancy services only - not a certification body.
+            © {new Date().getFullYear()} Lean EHS. All rights reserved.
+            
           </p>
         </div>
       </div>

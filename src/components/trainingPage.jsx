@@ -184,12 +184,12 @@ export default function TrainingPage() {
     {
       id: 13,
       icon: Zap,
-      title: "Promotional Safety Campagin and Traning",
+      title: "Promotional Safety Campaign and Training",
       description: "We conduct engaging safety awareness campaigns and training programs focused on National Safety Day, Road Safety Day, and environmental responsibility. These initiatives promote a strong safety culture, improve risk awareness, and help reduce vehicle-related and workplace incidents.",
       highlights: [
         "National Safet Day Celebration Campaign and Training",
         "Road Safety Day Campaign and Training",
-        "Environment Day Campagin and Training"
+        "Environment Day Campaign and Training"
         
       ],
       color: "from-indigo-600 to-blue-500"
@@ -485,8 +485,7 @@ export default function TrainingPage() {
           Training Certifications Provided
         </h3>
         <p className="text-gray-600 text-sm mt-1">
-          Participants receive recognized training certifications upon successful completion, 
-          supporting compliance, audits, and workforce competency development.
+          Participants receive recognized training certifications upon successful completion.
         </p>
       </div>
     </div>
